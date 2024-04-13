@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{ADA13127-8FE9-4B45-9164-FA5EDEBD8157}|CinemaBack.csproj|f:\\\u0432\u0443\u0437\\\u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\cinemaback\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ADA13127-8FE9-4B45-9164-FA5EDEBD8157}|CinemaBack.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ADA13127-8FE9-4B45-9164-FA5EDEBD8157}|CinemaBack.csproj|f:\\\u0432\u0443\u0437\\\u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\cinemaback\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{ADA13127-8FE9-4B45-9164-FA5EDEBD8157}|CinemaBack.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -30,24 +34,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
+              "ToolTip": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T11:36:42.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "launchSettings.json",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
               "ToolTip": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Properties\\launchSettings.json",
               "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-04-13T11:25:12.456Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CinemaBack.http",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\CinemaBack.http",
               "RelativeDocumentMoniker": "CinemaBack.http",
@@ -55,12 +76,11 @@
               "RelativeToolTip": "CinemaBack.http",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2024-04-13T11:25:08.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-13T11:25:08.352Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -68,16 +88,11 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-13T11:25:06.662Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "WhenOpened": "2024-04-13T11:25:06.662Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "WeatherForecast.cs",
@@ -85,12 +100,11 @@
               "RelativeToolTip": "WeatherForecast.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-13T09:15:40.747Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-13T09:15:40.747Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
