@@ -8,14 +8,15 @@ namespace CinemaBack.DB.Models
     {
         [Key]
         [Column("UserID")]
-        public Guid ID { get; set; }
+        public Guid ID { get; set; } = Guid.Empty;
 
         [Column("Name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Column("Password")]
-        public string Password { get; set; }
+        public string Password { get; set; } = string.Empty;
 
-
+        [Column("Email")]
+        public string Email { get; set; } = string.Empty;
     }
 }

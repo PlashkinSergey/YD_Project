@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CinemaBack.Migrations
 {
     [DbContext(typeof(CinemaDBContext))]
-    [Migration("20240413181520_CinemaDB")]
-    partial class CinemaDB
+    [Migration("20240413185839_Update User")]
+    partial class UpdateUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,10 +32,20 @@ namespace CinemaBack.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("UserID");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Email");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("Name");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Password");
 
                     b.HasKey("ID");
 
