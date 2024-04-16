@@ -23,10 +23,10 @@
       </mat-form-field>
       <mat-form-field class="style_block_input">
         <input matInput 
-        type="text" 
-        class="form_input" 
-        placeholder="Логин" 
-        formControlName = "login">
+          type="text" 
+          class="form_input" 
+          placeholder="Логин" 
+          formControlName = "login">
         <mat-error *ngIf="form.get('login')?.errors?.['required']">
           Поле обязательно для заполнения
         </mat-error>
