@@ -1,1 +1,36 @@
-<p>login works!</p>
+<div class = "block">
+    <section class="block_item block-item">
+        <h2 class="block-item_title">У вас ещё нет аккаунта?</h2>
+        <button mat-raised-button class="block-item_btn" (click) = "submit()">Зарегистрироваться</button>
+    </section>
+</div>
+
+<div class="form-box">
+    <form action="#" class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h2 class="form_title_g">Приложение Кинотеатра</h2>
+      <h3 class="form_title">Вход</h3>
+      <mat-form-field class="style_block_input">
+        <input matNativeControl type="email" class="form_input" placeholder="Логин" formControlName = "email">
+            <mat-error class="form_error_registr" *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+                Неверно заполнено поле
+            </mat-error>
+      </mat-form-field>
+      <mat-form-field class="style_block_input">
+        <input matNativeControl  type="password" class="form_input" placeholder="Пароль" formControlName = "password">
+        <mat-error class="form_error_registr" *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)">
+            Неверно заполнено поле
+        </mat-error>
+      </mat-form-field>
+      <p>
+        <button  
+          style="color: white;" 
+          class="form_btn"
+          mat-raised-button
+          type = "submit" 
+          [style.background]="this.form.valid ? '#03a9f4' : '#9E9E9E'"
+        >
+          Войти
+        </button>
+      </p>
+    </form>
+</div>

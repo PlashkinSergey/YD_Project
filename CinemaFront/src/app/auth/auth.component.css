@@ -1,0 +1,21 @@
+.auth {
+    width: 800px;
+    height: 500px;
+    padding: 40px 0;
+    position: relative;
+    background-color: inherit;
+  }
+  
+  .auth-content{
+    height: 100%;
+    width: 100%;
+  }
+  
+  .body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+  }

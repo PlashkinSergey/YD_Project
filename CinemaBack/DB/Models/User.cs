@@ -18,5 +18,8 @@ namespace CinemaBack.DB.Models
 
         [Column("Email")]
         public string Email { get; set; } = string.Empty;
+        
+        [Column("Type")]
+        public string Type { get; set; } = string.Empty;
     }
 }
