@@ -7,6 +7,7 @@ namespace CinemaBack.DB
     {
         public CinemaDBContext(DbContextOptions<CinemaDBContext> optinal) : base(optinal) { }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<DataUser> DataUser { get; set; }
     }
 }

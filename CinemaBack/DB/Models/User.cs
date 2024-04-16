@@ -7,19 +7,19 @@ namespace CinemaBack.DB.Models
     public class User
     {
         [Key]
-        [Column("UserID")]
-        public Guid ID { get; set; } = Guid.Empty;
+        [Column("UserID"), Required]
+        public Guid Id { get; set; }
 
-        [Column("Name")]
-        public string Name { get; set; } = string.Empty;
+        [Column("Name"), Required]
+        public string? Name { get; set; }
 
-        [Column("Password")]
-        public string Password { get; set; } = string.Empty;
+        [Column("Password"), Required]
+        public string? Password { get; set; }
 
-        [Column("Email")]
-        public string Email { get; set; } = string.Empty;
-        
-        [Column("Type")]
-        public string Type { get; set; } = string.Empty;
+        [Column("Email"), Required]
+        public string? Email { get; set; }
+
+        [Column("Type"), Required]
+        public string? Type { get; set; }
     }
 }

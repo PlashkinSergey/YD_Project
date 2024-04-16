@@ -11,11 +11,15 @@
       <h3 class="form_title">Регистрация</h3>
       <mat-form-field class="style_block_input">
         <input matInput type="email" class="form_input" placeholder="Email" formControlName = "email">
-        <section class="form_error_registr" *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
-          <mat-error>
-            
-          </mat-error>
-        </section>
+        <mat-error *ngIf="form.get('email')?.errors?.['required']">
+          Поле обязательно для заполнения
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.errors?.['forbiddenEmail']">
+          Email занят
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.errors?.['email']">
+          Email не по формату
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="style_block_input">
         <input matInput 
@@ -23,12 +27,17 @@
         class="form_input" 
         placeholder="Логин" 
         formControlName = "login">
-        <mat-error class="form_error_registr"  *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+        <mat-error *ngIf="form.get('login')?.errors?.['required']">
+          Поле обязательно для заполнения
         </mat-error>
       </mat-form-field>
       <mat-form-field class="style_block_input">
         <input matInput type="password" class="form_input" placeholder="Пароль" formControlName = "password">
-        <mat-error class="form_error_registr" *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)">
+        <mat-error *ngIf="form.get('password')?.errors?.['required']">
+          Поле обязательно для заполнения
+        </mat-error>
+        <mat-error *ngIf="form.get('password')?.errors?.['minLength']">
+          Длина пароля минимум 6 символов
         </mat-error>
       </mat-form-field >
       <p style="margin-right: 74%; margin-top: 5%;">

@@ -6,7 +6,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 
 
@@ -22,7 +22,8 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}

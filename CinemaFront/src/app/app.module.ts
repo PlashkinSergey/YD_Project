@@ -7,9 +7,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AuthModule } from './auth/auth.module';
 import { SystemModule } from './system/system.module';
 import { Error404Module } from './error404/error404.module';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatButtonModule} from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideHotToastConfig } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -20,11 +20,15 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     AuthModule,
     SystemModule,
-    Error404Module
+    Error404Module,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHotToastConfig()
   ],
   bootstrap: [AppComponent]
 })
