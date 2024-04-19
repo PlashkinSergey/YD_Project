@@ -55,6 +55,7 @@ export class RegistrationComponent implements OnInit {
       this.toast.error("Ошибка при регистраций")
     });
   }
+  
   submit():void {
     this.router.navigate(['/auth','login']);
   }
