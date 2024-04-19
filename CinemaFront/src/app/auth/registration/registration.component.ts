@@ -35,7 +35,7 @@ export class RegistrationComponent implements OnInit {
         "login": new FormControl('', [Validators.required, Validators.minLength(3)]),
         "password": new FormControl('', [
           Validators.required, 
-          Validators.min(6)
+          Validators.minLength(6)
         ]),
       }
     )
@@ -50,7 +50,9 @@ export class RegistrationComponent implements OnInit {
       if (user) {
         this.toast.success("Регистрация прошла успешно");
         this.router.navigate(['/auth','login']);
+        return;
       }
+      this.toast.error("Ошибка при регистраций")
     });
   }
   submit():void {

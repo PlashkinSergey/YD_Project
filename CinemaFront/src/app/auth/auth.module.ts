@@ -26,7 +26,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule
   ],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, 
+      useValue: {appearance: 'fill'}
+    }
   ]
 })
 export class AuthModule { }

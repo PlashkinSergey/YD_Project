@@ -10,6 +10,7 @@ import { Error404Module } from './error404/error404.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHotToastConfig } from '@ngneat/hot-toast';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { provideHotToastConfig } from '@ngneat/hot-toast';
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideHotToastConfig()
+    provideHotToastConfig(),
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
   ],
   bootstrap: [AppComponent]
 })

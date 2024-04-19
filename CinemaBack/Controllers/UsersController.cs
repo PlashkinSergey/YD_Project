@@ -21,25 +21,21 @@ namespace CinemaBack.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<List<User>?> Index()
         {
-            return View(await _context.User.ToListAsync());
+            return await _context.User.ToListAsync();
         }
 
         [HttpGet("{id:guid}")]
-        public async Task<IActionResult> UserById(Guid? id)
+        public async Task<User?> UserById(Guid? id)
         {
             if (id == null)
             {
-                return NotFound();
+                return null;
             }
             var user = await _context.User
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            return View(user);
+            return user;
         }
 
         [HttpGet("email={email}")]
@@ -69,11 +65,11 @@ namespace CinemaBack.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> Edit(Guid id, User user)
+        public async Task<User?> Edit(Guid id, User user)
         {
             if (id != user.Id)
             {
-                return NotFound();
+                return null;
             }
 
             if (ModelState.IsValid)
@@ -87,20 +83,20 @@ namespace CinemaBack.Controllers
                 {
                     if (!UserExists(user.Id))
                     {
-                        return NotFound();
+                        return user;
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return user;
             }
-            return View(user);
+            return user;
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<User?> DeleteConfirmed(Guid id)
         {
             var user = await _context.User.FindAsync(id);
             if (user != null)
@@ -113,7 +109,7 @@ namespace CinemaBack.Controllers
                 _context.User.Remove(user);
             }
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return user;
         }
 
         private bool UserExists(Guid id)
