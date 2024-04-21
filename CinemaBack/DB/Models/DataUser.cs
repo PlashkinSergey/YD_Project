@@ -10,7 +10,7 @@ namespace CinemaBack.DB.Models
         [Column("DataUserID"), Required]
         public Guid Id { get; set; }
 
-        [Column("UserID"), Required]
+        [Column("UserID")]
         public Guid UserId { get; set; }
 
         [Column("Phone")]
@@ -24,5 +24,7 @@ namespace CinemaBack.DB.Models
 
         [Column("PassportNumber")]
         public string PasNum { get; set; } = string.Empty;
+
+        public virtual User User { get; set; }
     }
 }

@@ -32,7 +32,11 @@ export class RegistrationComponent implements OnInit {
               this.validatorService.forbiddenEmails.bind(this)
             ]
           ),
-        "login": new FormControl('', [Validators.required, Validators.minLength(3)]),
+        "login": new FormControl('', [
+            Validators.required, 
+            Validators.minLength(3)
+          ], this.validatorService.forbiddenLogins.bind(this)
+        ),
         "password": new FormControl('', [
           Validators.required, 
           Validators.minLength(6)
@@ -55,7 +59,7 @@ export class RegistrationComponent implements OnInit {
       this.toast.error("Ошибка при регистраций")
     });
   }
-  
+
   submit():void {
     this.router.navigate(['/auth','login']);
   }

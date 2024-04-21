@@ -15,9 +15,22 @@ export class MyValidatorService {
   forbiddenEmails(control: AbstractControl): Promise<any> {
     return new Promise((resolve, reject) => {
       this.userService.userByEmail(control.value)
-      .subscribe((user: User | undefined)=>{
+      .subscribe((user: User)=>{
         if(user) {
           resolve({ forbiddenEmail: true });
+        } else {
+          resolve(null);
+        }
+      });
+    });
+  }
+
+  forbiddenLogins(control: AbstractControl): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userService.userByName(control.value)
+      .subscribe((user: User)=>{
+        if(user) {
+          resolve({ forbiddenLogin: true });
         } else {
           resolve(null);
         }

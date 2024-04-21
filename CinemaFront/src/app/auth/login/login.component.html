@@ -10,7 +10,7 @@
       <h2 class="form_title_g">Приложение Кинотеатра</h2>
       <h3 class="form_title">Вход</h3>
       <mat-form-field class="style_block_input">
-        <input matNativeControl type="email" class="form_input" placeholder="Логин" formControlName = "email">
+        <input matNativeControl type="email" class="form_input" placeholder="Email" formControlName = "email">
             <mat-error class="form_error_registr" *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
                 Неверно заполнено поле
             </mat-error>

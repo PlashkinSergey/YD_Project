@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CinemaBack.DB;
 using CinemaBack.DB.Models;
+using CinemaBack.Hash;
 
 namespace CinemaBack.Controllers
 {
@@ -41,27 +37,38 @@ namespace CinemaBack.Controllers
         [HttpGet("email={email}")]
         public async Task<User?> UserByEmail(string email)
         {
-            var user = await _context.User
+            return await _context.User
                 .FirstOrDefaultAsync(m => m.Email == email);
-            if (user == null)
-            {
-                return null;
-            }
-            return user;
         }
 
+        [HttpGet("email={email}/password={password}")]
+        public async Task<User?> UserByEmailandPassword(string email, string password)
+        {
+            var hash = new Hasher(password).GetHash();
+            return await _context.User
+                .FirstOrDefaultAsync(m => m.Email == email && m.Password == hash);
+        }
+
+        [HttpGet("name={name}")]
+        public async Task<User?> UserByName(string name)
+        {
+            return await _context.User
+                .FirstOrDefaultAsync(m => m.Name == name);
+        }
 
         [HttpPost]
-        public async Task<User> Create(User user)
+        public async Task<User?> Create(User user)
         {
             if (ModelState.IsValid)
             {
+                var hasher = new Hasher(user.Password);
                 user.Id = Guid.NewGuid();
+                user.Password = hasher.GetHash();
                 _context.User.Add(user);
                 await _context.SaveChangesAsync();
                 return user;
             }
-            return user;
+            return null;
         }
 
         [HttpPut("{id:guid}")]
@@ -92,7 +99,7 @@ namespace CinemaBack.Controllers
                 }
                 return user;
             }
-            return user;
+            return null;
         }
 
         [HttpDelete("{id:guid}")]

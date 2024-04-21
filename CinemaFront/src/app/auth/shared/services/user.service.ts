@@ -10,7 +10,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private URL: string = 'https://localhost:7039/api/Users';
+  private readonly URL: string = 'https://localhost:7039/api/Users';
+
   get Users(): Observable<User[]> {
     return this.http.get<User[]>(this.URL);
   }
@@ -33,5 +34,13 @@ export class UserService {
 
   deleteUser(id: string): Observable<User> {
     return this.http.delete<User>(`${this.URL}/${id}`);
+  }
+
+  userByEmailAndPassword(email: string, password: string): Observable<User> {
+    return this.http.get<User>(`${this.URL}/email=${email}/password=${password}`);
+  }
+
+  userByName(name: string): Observable<User> {
+    return this.http.get<User>(`${this.URL}/name=${name}`);
   }
 }
