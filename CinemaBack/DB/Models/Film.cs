@@ -12,7 +12,7 @@ namespace CinemaBack.DB.Models
         [Column("DistributorId")]
         public Guid DistributorId { get; set; }
 
-        [Column("NameFiln")]
+        [Column("NameFilm")]
         public string Name { get; set; }
 
         [Column("Duration")]

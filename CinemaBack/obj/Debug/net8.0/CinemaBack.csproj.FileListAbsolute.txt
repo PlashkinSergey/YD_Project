@@ -233,5 +233,3 @@ F:\Вуз\Управление данными\Курсовая\CinemaBack\bin\De
 F:\Вуз\Управление данными\Курсовая\CinemaBack\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 F:\Вуз\Управление данными\Курсовая\CinemaBack\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 F:\Вуз\Управление данными\Курсовая\CinemaBack\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-F:\Вуз\Управление данными\Курсовая\CinemaBack\obj\Debug\net8.0\CinemaBack.RazorAssemblyInfo.cache
-F:\Вуз\Управление данными\Курсовая\CinemaBack\obj\Debug\net8.0\CinemaBack.RazorAssemblyInfo.cs

@@ -7,7 +7,7 @@ import { SystemRoutingModule } from './system-routing.module';
 import { OrderPageComponent } from './order-page/order-page.component';
 import { SystemComponent } from './system.component';
 import { HeaderComponent } from './header/header.component';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     CommonModule,
-    SystemRoutingModule
+    SystemRoutingModule,
+    MatToolbarModule
   ]
 })
 export class SystemModule { }
