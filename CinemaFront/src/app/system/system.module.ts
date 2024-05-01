@@ -6,8 +6,12 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { SystemRoutingModule } from './system-routing.module';
 import { OrderPageComponent } from './order-page/order-page.component';
 import { SystemComponent } from './system.component';
-import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -16,13 +20,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FilmsComponent,
     UserPageComponent,
     OrderPageComponent,
-    SystemComponent,
-    HeaderComponent
+    SystemComponent
   ],
   imports: [
     CommonModule,
     SystemRoutingModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule
   ]
 })
 export class SystemModule { }

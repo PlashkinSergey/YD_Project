@@ -1,8 +1,72 @@
 <div class="wrapper">
 
-    <app-header></app-header>
-
-    <router-outlet></router-outlet>
+    <mat-toolbar color="primary">
+        <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <h1>Cinema Aplication</h1>
+        <ng-container *ngIf="user$ | async as user; else loginButton" #user>
+          <button mat-button [matMenuTriggerFor]="userMenu">
+            <mat-icon>account_circle</mat-icon>  
+            {{ user.name }}
+            <mat-icon>expand_more</mat-icon>
+          </button>
+        </ng-container>
+      
+        <ng-template #loginButton>
+          <button mat-button [routerLink]="['/auth','login']">
+            <mat-icon>login</mat-icon>
+          </button>
+        </ng-template>
+      
+      </mat-toolbar>
+      
+      <mat-sidenav-container autosize>
+        <mat-sidenav [ngClass]="!isCollapsed ? 'expanded' : ''" [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'">
+          <mat-nav-list>
+            <a mat-list-item [routerLink]="['/system', 'home']">
+              <span class="entry">
+                 <mat-icon>house</mat-icon>
+                 <span *ngIf="!isCollapsed">Главная</span>
+              </span>
+           </a>
+            <a mat-list-item>
+                <span class="entry" [routerLink]="['/system', 'films']">
+                <mat-icon>local_movies</mat-icon>
+                <span *ngIf="!isCollapsed">Фильмы</span>
+                </span>
+            </a>
+            <a mat-list-item [routerLink]="['/system', 'orders']">
+                <span class="entry">
+                <mat-icon>local_grocery_store</mat-icon>
+                <span *ngIf="!isCollapsed">Заказы</span>
+                </span>
+            </a>
+            <a mat-list-item>
+                <span class="entry">
+                <mat-icon>group</mat-icon>
+                <span *ngIf="!isCollapsed">Штат</span>
+                </span>
+            </a>
+          </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <div class = "content">
+            <router-outlet></router-outlet>
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item [routerLink]="['/system', 'user']">
+          <mat-icon>account_circle</mat-icon>
+          Профиль
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+            Выйти
+        </button>
+      </mat-menu>
     
 </div>
 

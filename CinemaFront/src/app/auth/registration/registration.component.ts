@@ -49,7 +49,7 @@ export class RegistrationComponent implements OnInit {
     console.log(this.form.value);
     if (!this.form.valid) { return; }
     const values = this.form.value;
-    const user = new User(values.login, values.password, values.email,  "Клиент");
+    const user = new User(values.login, values.password, values.email,  "Сотрудник");
     this.userService.createUser(user).subscribe((user: User) => {
       if (user) {
         this.toast.success("Регистрация прошла успешно");
