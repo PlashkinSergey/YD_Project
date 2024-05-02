@@ -11,10 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHotToastConfig } from '@ngneat/hot-toast';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { EditFilmComponent } from './system/shared/forms/edit-film/edit-film.component';
+import { AddFilmComponent } from './system/shared/forms/add-film/add-film.component';
+import { AddOrderComponent } from './system/shared/forms/add-order/add-order.component';
+import { EditOrderComponent } from './system/shared/forms/edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditFilmComponent,
+    AddFilmComponent,
+    AddOrderComponent,
+    EditOrderComponent
   ],
   imports: [
     BrowserModule,

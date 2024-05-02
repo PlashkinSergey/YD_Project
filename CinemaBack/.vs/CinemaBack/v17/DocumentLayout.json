@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E64A57A7-DFC2-4093-9458-7EF8690D6583}|CinemaBack.csproj|f:\\\u0432\u0443\u0437\\\u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\cinemaback\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E64A57A7-DFC2-4093-9458-7EF8690D6583}|CinemaBack.csproj|solutionrelative:controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E64A57A7-DFC2-4093-9458-7EF8690D6583}|CinemaBack.csproj|f:\\\u0432\u0443\u0437\\\u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\cinemaback\\controllers\\distributorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E64A57A7-DFC2-4093-9458-7EF8690D6583}|CinemaBack.csproj|solutionrelative:controllers\\distributorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -98,19 +102,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrdersController.cs",
+              "ToolTip": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "Controllers\\OrdersController.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwHEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T18:44:19.583Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DistributorsController.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Controllers\\DistributorsController.cs",
               "RelativeDocumentMoniker": "Controllers\\DistributorsController.cs",
@@ -123,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FilmsController.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Controllers\\FilmsController.cs",
               "RelativeDocumentMoniker": "Controllers\\FilmsController.cs",
@@ -131,12 +144,11 @@
               "RelativeToolTip": "Controllers\\FilmsController.cs",
               "ViewState": "AQIAAGIAAAAAAAAAAAAQwGYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T17:45:04.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-01T17:45:04.459Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "20240425065343_Edit.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Migrations\\20240425065343_Edit.cs",
               "RelativeDocumentMoniker": "Migrations\\20240425065343_Edit.cs",
@@ -144,12 +156,11 @@
               "RelativeToolTip": "Migrations\\20240425065343_Edit.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAgwBsAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T06:53:44.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-25T06:53:44.005Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "20240419185032_NewTableAndModel.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Migrations\\20240419185032_NewTableAndModel.cs",
               "RelativeDocumentMoniker": "Migrations\\20240419185032_NewTableAndModel.cs",
@@ -161,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "20240419184802_NewTableAndModel.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Migrations\\20240419184802_NewTableAndModel.cs",
               "RelativeDocumentMoniker": "Migrations\\20240419184802_NewTableAndModel.cs",
@@ -173,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "booked_tickets.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\booked_tickets.cs",
               "RelativeDocumentMoniker": "DB\\Models\\booked_tickets.cs",
@@ -185,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Place.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\Place.cs",
               "RelativeDocumentMoniker": "DB\\Models\\Place.cs",
@@ -197,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UsersController.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
@@ -205,12 +216,11 @@
               "RelativeToolTip": "Controllers\\UsersController.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAgwAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T15:42:14.614Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T15:42:14.614Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "20240419185910_New.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Migrations\\20240419185910_New.cs",
               "RelativeDocumentMoniker": "Migrations\\20240419185910_New.cs",
@@ -222,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Order.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\Order.cs",
               "RelativeDocumentMoniker": "DB\\Models\\Order.cs",
@@ -234,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Hall.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\Hall.cs",
               "RelativeDocumentMoniker": "DB\\Models\\Hall.cs",
@@ -246,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Hasher.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Hash\\Hasher.cs",
               "RelativeDocumentMoniker": "Hash\\Hasher.cs",
@@ -258,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Film.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\Film.cs",
               "RelativeDocumentMoniker": "DB\\Models\\Film.cs",
@@ -270,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -282,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "20240419185506_NewTableAndModel.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Migrations\\20240419185506_NewTableAndModel.cs",
               "RelativeDocumentMoniker": "Migrations\\20240419185506_NewTableAndModel.cs",
@@ -294,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DataUser.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\DataUser.cs",
               "RelativeDocumentMoniker": "DB\\Models\\DataUser.cs",
@@ -306,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "20240419184628_NewTableAndModel.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\Migrations\\20240419184628_NewTableAndModel.cs",
               "RelativeDocumentMoniker": "Migrations\\20240419184628_NewTableAndModel.cs",
@@ -318,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Ticket.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\Ticket.cs",
               "RelativeDocumentMoniker": "DB\\Models\\Ticket.cs",
@@ -330,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Distributor.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\Distributor.cs",
               "RelativeDocumentMoniker": "DB\\Models\\Distributor.cs",
@@ -342,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "CinemaDBContex.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\CinemaDBContex.cs",
               "RelativeDocumentMoniker": "DB\\CinemaDBContex.cs",
@@ -354,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Seance.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\Seance.cs",
               "RelativeDocumentMoniker": "DB\\Models\\Seance.cs",
@@ -366,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "User.cs",
               "DocumentMoniker": "F:\\\u0412\u0443\u0437\\\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0434\u0430\u043D\u043D\u044B\u043C\u0438\\\u041A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CinemaBack\\DB\\Models\\User.cs",
               "RelativeDocumentMoniker": "DB\\Models\\User.cs",
