@@ -24,5 +24,7 @@ namespace CinemaBack.DB.Models
 
         public virtual Film Film { get; set; }
         public virtual Hall Hall { get; set; }
+
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

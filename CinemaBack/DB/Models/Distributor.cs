@@ -8,13 +8,15 @@ namespace CinemaBack.DB.Models
         [Key, Column("DistributorId")]
         public Guid Id { get; set; }
 
-        [Column("Company")]
+        [Column("Company"), Required]
         public string Company { get; set; }
 
-        [Column("Country")]
+        [Column("Country"), Required]
         public string Country { get; set; }
 
-        [Column("Site")]
+        [Column("Site"), Required]
         public string Site { get; set; }
+
+        public virtual ICollection<Film> Films { get; set; }
     }
 }

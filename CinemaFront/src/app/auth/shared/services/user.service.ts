@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private readonly URL: string = 'https://localhost:7039/api/Users';
+   private readonly URL: string = 'https://localhost:7039/api/Users';
 
   get Users(): Observable<User[]> {
     return this.http.get<User[]>(this.URL);

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CinemaBack.Migrations
 {
     /// <inheritdoc />
-    public partial class New : Migration
+    public partial class UpdateModels : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -58,7 +58,7 @@ namespace CinemaBack.Migrations
                 {
                     FilmId = table.Column<Guid>(type: "uuid", nullable: false),
                     DistributorId = table.Column<Guid>(type: "uuid", nullable: false),
-                    NameFiln = table.Column<string>(type: "text", nullable: false),
+                    NameFilm = table.Column<string>(type: "text", nullable: false),
                     Duration = table.Column<string>(type: "text", nullable: false),
                     Genre = table.Column<string>(type: "text", nullable: false),
                     Director = table.Column<string>(type: "text", nullable: false)
@@ -100,7 +100,7 @@ namespace CinemaBack.Migrations
                 {
                     DataUserID = table.Column<Guid>(type: "uuid", nullable: false),
                     UserID = table.Column<Guid>(type: "uuid", nullable: false),
-                    Phone = table.Column<string>(type: "text", nullable: true),
+                    Phone = table.Column<string>(type: "text", nullable: false),
                     Inn = table.Column<string>(type: "text", nullable: false),
                     PassportSeries = table.Column<string>(type: "text", nullable: false),
                     PassportNumber = table.Column<string>(type: "text", nullable: false)
@@ -123,7 +123,7 @@ namespace CinemaBack.Migrations
                     OrderId = table.Column<Guid>(type: "uuid", nullable: false),
                     EmployeeId = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    RegistrationDate = table.Column<Guid>(type: "uuid", nullable: false)
+                    RegistrationDate = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

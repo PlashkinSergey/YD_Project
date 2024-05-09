@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CinemaBack.Migrations
 {
     [DbContext(typeof(CinemaDBContext))]
-    [Migration("20240419185910_New")]
-    partial class New
+    [Migration("20240509203150_UpdateModels")]
+    partial class UpdateModels
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,7 @@ namespace CinemaBack.Migrations
                         .HasColumnName("PassportSeries");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("Phone");
 
@@ -118,7 +119,7 @@ namespace CinemaBack.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("NameFiln");
+                        .HasColumnName("NameFilm");
 
                     b.HasKey("Id");
 
@@ -154,8 +155,9 @@ namespace CinemaBack.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("EmployeeId");
 
-                    b.Property<Guid>("RegDate")
-                        .HasColumnType("uuid")
+                    b.Property<string>("RegDate")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("RegistrationDate");
 
                     b.Property<Guid>("UserId")
@@ -327,7 +329,7 @@ namespace CinemaBack.Migrations
             modelBuilder.Entity("CinemaBack.DB.Models.Film", b =>
                 {
                     b.HasOne("CinemaBack.DB.Models.Distributor", "Distributor")
-                        .WithMany()
+                        .WithMany("Films")
                         .HasForeignKey("DistributorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -357,7 +359,7 @@ namespace CinemaBack.Migrations
             modelBuilder.Entity("CinemaBack.DB.Models.Place", b =>
                 {
                     b.HasOne("CinemaBack.DB.Models.Hall", "Hall")
-                        .WithMany()
+                        .WithMany("Places")
                         .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -374,7 +376,7 @@ namespace CinemaBack.Migrations
                         .IsRequired();
 
                     b.HasOne("CinemaBack.DB.Models.Hall", "Hall")
-                        .WithMany()
+                        .WithMany("Seances")
                         .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -387,7 +389,7 @@ namespace CinemaBack.Migrations
             modelBuilder.Entity("CinemaBack.DB.Models.Ticket", b =>
                 {
                     b.HasOne("CinemaBack.DB.Models.Seance", "Seance")
-                        .WithMany()
+                        .WithMany("Tickets")
                         .HasForeignKey("SeanceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -412,6 +414,23 @@ namespace CinemaBack.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Ticket");
+                });
+
+            modelBuilder.Entity("CinemaBack.DB.Models.Distributor", b =>
+                {
+                    b.Navigation("Films");
+                });
+
+            modelBuilder.Entity("CinemaBack.DB.Models.Hall", b =>
+                {
+                    b.Navigation("Places");
+
+                    b.Navigation("Seances");
+                });
+
+            modelBuilder.Entity("CinemaBack.DB.Models.Seance", b =>
+                {
+                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

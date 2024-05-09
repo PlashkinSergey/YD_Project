@@ -9,13 +9,13 @@ namespace CinemaBack.DB.Models
         [Key, Column("TicketId")]
         public Guid Id { get; set; }
 
-        [Column("SeanceId")]
+        [Column("SeanceId"), Required]
         public Guid SeanceId { get; set; }
 
-        [Column("Row")]
+        [Column("Row"), Required]
         public int Row { get; set; }
 
-        [Column("Place")]
+        [Column("Place"), Required]
         public int Place { get; set; }
 
         public virtual Seance Seance { get; set; }

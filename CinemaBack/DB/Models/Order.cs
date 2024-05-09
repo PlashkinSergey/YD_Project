@@ -14,8 +14,8 @@ namespace CinemaBack.DB.Models
         [Column("UserId")]
         public Guid UserId { get; set; }
 
-        [Column("RegistrationDate")]
-        public Guid RegDate { get; set; }
+        [Column("RegistrationDate"), Required]
+        public string RegDate { get; set; }
 
         public virtual User Employee { get; set; }
         public virtual User User { get; set; }

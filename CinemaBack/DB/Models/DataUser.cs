@@ -10,11 +10,11 @@ namespace CinemaBack.DB.Models
         [Column("DataUserID"), Required]
         public Guid Id { get; set; }
 
-        [Column("UserID")]
+        [Column("UserID"), Required]
         public Guid UserId { get; set; }
 
         [Column("Phone")]
-        public string? Phone { get; set; }
+        public string Phone { get; set; }
 
         [Column("Inn")]
         public string Inn { get; set; } = string.Empty;

@@ -11,10 +11,10 @@ namespace CinemaBack.DB.Models
         [Column("HallId")]
         public Guid HallId { get; set; }
 
-        [Column("Row")]
+        [Column("Row"), Required]
         public int Row { get; set; }
 
-        [Column("Position")]
+        [Column("Position"), Required]
         public int Position { get; set; }
 
         public virtual Hall Hall { get; set; }
