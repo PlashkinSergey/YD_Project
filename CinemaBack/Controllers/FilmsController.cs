@@ -43,18 +43,8 @@ namespace CinemaBack.Controllers
 
             return film != null ? film : null;
         }
-
-        // GET: Films/Create
-
-        //public IActionResult Create()
-        //{
-        //    ViewData["DistributorId"] = new SelectList(_context.Distributor, "Id", "Id");
-        //    return View();
-        //}
-
+        
         // POST: Films/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         public async Task<Film?> Create(Film film)
         {
@@ -68,8 +58,6 @@ namespace CinemaBack.Controllers
             return null;
         }
         // POST: Films/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPut("{id:guid}")]
         public async Task<Film?> Edit(Guid id, [Bind("Id,DistributorId,Name,Duration,Genre,Director")] Film film)
         {
