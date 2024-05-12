@@ -19,8 +19,7 @@ namespace CinemaBack.Controllers
         [HttpGet]
         public async Task<List<Order>?> Index()
         {
-            var cinemaDBContext = _context.Order.Include(o => o.Employee).Include(o => o.User);
-            return await cinemaDBContext.ToListAsync();
+            return await _context.Order.ToListAsync();
         }
 
         // GET: Orders/Details/5
@@ -33,8 +32,6 @@ namespace CinemaBack.Controllers
             }
 
             var order = await _context.Order
-                .Include(o => o.Employee)
-                .Include(o => o.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             return order != null ? order : null;
         }

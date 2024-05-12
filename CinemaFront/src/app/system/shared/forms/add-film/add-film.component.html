@@ -1,25 +1,51 @@
-<form class="form-add-product" 
-    [formGroup]="form" 
-    (ngSubmit)="onSubmit()" 
-    *ngIf="distributors$ | async as distributors"
->
-  <mat-form-field class="style_block_input">
-    <input matInput type="text" formControlName="name" placeholder="Название">
-  </mat-form-field>
-  <mat-form-field class="style_block_input">
-    <input matInput type="text" formControlName="type" placeholder="Жанр">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-select placeholder="Дистрибьютор" 
-        formControlName="distributor" 
-        [(ngModel)]="idDistributor"
-        (ngModelChange)="onChange()"
-    >
-        <mat-option>--</mat-option>
-        <mat-option *ngFor="let d of distributors" [value]="d.id">
-            {{d.company}}
-        </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button mat-flat-button class="button_add_film" type="submit">Добавить</button>
-</form>
+<div style="display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             margin-top: 15px;">
+  <h3 class="mat-h3">Добавить фильм</h3>
+  <form class="form-add-product" 
+      [formGroup]="form" 
+      (ngSubmit)="onSubmit()" 
+      *ngIf="distributors$ | async as distributors"
+  >
+    <mat-form-field class="style_block_input">
+      <mat-label>Название фильма</mat-label>
+      <input matInput type="text" formControlName="name" placeholder="Название">
+    </mat-form-field>
+    <mat-form-field class="style_block_input">
+      <mat-label>Жанр фильма</mat-label>
+      <input matInput type="text" formControlName="type" placeholder="Жанр">
+    </mat-form-field>
+    <mat-form-field class="style_block_input">
+      <mat-label>Режисёр фильма</mat-label>
+      <input matInput type="text" formControlName="director" placeholder="Режисёр">
+    </mat-form-field>
+    <mat-form-field class="style_block_input">
+      <mat-label>Продолжительность фильма</mat-label>
+      <input matInput type="time" formControlName="duration" placeholder="Продолжительность">
+    </mat-form-field>
+    <mat-form-field class="style_block_input">
+      <mat-label>Дистрибьютор фильма</mat-label>
+      <mat-select placeholder="Дистрибьютор" 
+          formControlName="distributor" 
+          [(ngModel)]="idDistributor"
+          (ngModelChange)="onChange()"
+      >
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let d of distributors" [value]="d.id">
+              {{d.company}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p>
+      <button mat-flat-button class="button_add_film" (click)="close()">
+        Отмена
+      </button>
+
+      <button mat-flat-button class="button_add_film" type="submit" [mat-dialog-close]="idDistributor">
+        Добавить
+      </button>
+    </p>
+  </form>
+</div>

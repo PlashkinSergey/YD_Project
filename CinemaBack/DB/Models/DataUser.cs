@@ -24,7 +24,5 @@ namespace CinemaBack.DB.Models
 
         [Column("PassportNumber")]
         public string PasNum { get; set; } = string.Empty;
-
-        public virtual User User { get; set; }
     }
 }

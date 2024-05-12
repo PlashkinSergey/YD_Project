@@ -17,7 +17,5 @@ namespace CinemaBack.DB.Models
 
         [Column("Place"), Required]
         public int Place { get; set; }
-
-        public virtual Seance Seance { get; set; }
     }
 }

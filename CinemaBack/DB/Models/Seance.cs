@@ -21,10 +21,5 @@ namespace CinemaBack.DB.Models
 
         [Column("Price")]
         public string Price { get; set; }
-
-        public virtual Film Film { get; set; }
-        public virtual Hall Hall { get; set; }
-
-        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

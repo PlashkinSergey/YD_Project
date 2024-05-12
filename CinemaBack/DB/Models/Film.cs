@@ -23,7 +23,5 @@ namespace CinemaBack.DB.Models
 
         [Column("Director"), Required]
         public string Director { get; set; }
-
-        public virtual Distributor Distributor { get; set; }
     }
 }

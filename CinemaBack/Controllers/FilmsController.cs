@@ -24,8 +24,7 @@ namespace CinemaBack.Controllers
         [HttpGet]
         public async Task<List<Film>?> GetAllFilm()
         {
-            var cinemaDBContext = _context.Film.Include(f => f.Distributor);
-            return await cinemaDBContext.ToListAsync();
+            return await _context.Film.ToListAsync();
         }
 
         // GET: Films/Details/5
@@ -38,7 +37,6 @@ namespace CinemaBack.Controllers
             }
 
             var film = await _context.Film
-                .Include(f => f.Distributor)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             return film != null ? film : null;

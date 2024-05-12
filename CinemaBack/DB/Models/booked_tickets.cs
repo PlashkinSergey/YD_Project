@@ -13,9 +13,5 @@ namespace CinemaBack.DB.Models
 
         [Required, Column("TicketId")]
         public Guid TicketId { get; set; }
-
-        public virtual Ticket Ticket { get; set; }
-
-        public virtual Order Order { get; set; }
     }
 }

@@ -16,8 +16,5 @@ namespace CinemaBack.DB.Models
 
         [Column("RegistrationDate"), Required]
         public string RegDate { get; set; }
-
-        public virtual User Employee { get; set; }
-        public virtual User User { get; set; }
     }
 }

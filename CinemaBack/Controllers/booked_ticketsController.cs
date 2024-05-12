@@ -24,7 +24,7 @@ namespace CinemaBack.Controllers
         [HttpGet]
         public async Task<List<booked_tickets>> Index()
         {
-            var cinemaDBContext = _context.booked_tickets.Include(b => b.Order).Include(b => b.Ticket);
+            var cinemaDBContext = _context.booked_tickets;
             return await cinemaDBContext.ToListAsync();
         }
 
@@ -38,8 +38,6 @@ namespace CinemaBack.Controllers
             }
 
             return await _context.booked_tickets
-                .Include(b => b.Order)
-                .Include(b => b.Ticket)
                 .FirstOrDefaultAsync(m => m.OrderId == id);
         }
 

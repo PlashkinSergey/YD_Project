@@ -55,8 +55,6 @@ namespace CinemaBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("DataUser");
                 });
 
@@ -120,8 +118,6 @@ namespace CinemaBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DistributorId");
-
                     b.ToTable("Film");
                 });
 
@@ -163,10 +159,6 @@ namespace CinemaBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId");
-
-                    b.HasIndex("UserId");
-
                     b.ToTable("Order");
                 });
 
@@ -190,8 +182,6 @@ namespace CinemaBack.Migrations
                         .HasColumnName("Row");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("HallId");
 
                     b.ToTable("Place");
                 });
@@ -223,10 +213,6 @@ namespace CinemaBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FilmId");
-
-                    b.HasIndex("HallId");
-
                     b.ToTable("Seance");
                 });
 
@@ -250,8 +236,6 @@ namespace CinemaBack.Migrations
                         .HasColumnName("SeanceId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SeanceId");
 
                     b.ToTable("Ticket");
                 });
@@ -305,129 +289,7 @@ namespace CinemaBack.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("TicketId");
-
                     b.ToTable("booked_tickets");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.DataUser", b =>
-                {
-                    b.HasOne("CinemaBack.DB.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.Film", b =>
-                {
-                    b.HasOne("CinemaBack.DB.Models.Distributor", "Distributor")
-                        .WithMany("Films")
-                        .HasForeignKey("DistributorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Distributor");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.Order", b =>
-                {
-                    b.HasOne("CinemaBack.DB.Models.User", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CinemaBack.DB.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.Place", b =>
-                {
-                    b.HasOne("CinemaBack.DB.Models.Hall", "Hall")
-                        .WithMany("Places")
-                        .HasForeignKey("HallId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Hall");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.Seance", b =>
-                {
-                    b.HasOne("CinemaBack.DB.Models.Film", "Film")
-                        .WithMany()
-                        .HasForeignKey("FilmId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CinemaBack.DB.Models.Hall", "Hall")
-                        .WithMany("Seances")
-                        .HasForeignKey("HallId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Film");
-
-                    b.Navigation("Hall");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.Ticket", b =>
-                {
-                    b.HasOne("CinemaBack.DB.Models.Seance", "Seance")
-                        .WithMany("Tickets")
-                        .HasForeignKey("SeanceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Seance");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.booked_tickets", b =>
-                {
-                    b.HasOne("CinemaBack.DB.Models.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CinemaBack.DB.Models.Ticket", "Ticket")
-                        .WithMany()
-                        .HasForeignKey("TicketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Ticket");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.Distributor", b =>
-                {
-                    b.Navigation("Films");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.Hall", b =>
-                {
-                    b.Navigation("Places");
-
-                    b.Navigation("Seances");
-                });
-
-            modelBuilder.Entity("CinemaBack.DB.Models.Seance", b =>
-                {
-                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

@@ -30,9 +30,8 @@ namespace CinemaBack.Controllers
             {
                 return null;
             }
-            var distributor = await _context.Distributor
-                .FirstOrDefaultAsync(m => m.Id == id);
-            return distributor != null ? distributor : null;
+            return await _context.Distributor
+                .FirstOrDefaultAsync(m => m.Id == id); ;
         }
 
         // POST: Distributors/Create

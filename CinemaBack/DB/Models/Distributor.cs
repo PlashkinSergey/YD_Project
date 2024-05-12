@@ -16,7 +16,5 @@ namespace CinemaBack.DB.Models
 
         [Column("Site"), Required]
         public string Site { get; set; }
-
-        public virtual ICollection<Film> Films { get; set; }
     }
 }

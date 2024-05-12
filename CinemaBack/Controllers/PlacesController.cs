@@ -20,8 +20,7 @@ namespace CinemaBack.Controllers
         [HttpGet]
         public async Task<List<Place>> Index()
         {
-            var cinemaDBContext = _context.Place.Include(p => p.Hall);
-            return await cinemaDBContext.ToListAsync();
+            return await _context.Place.ToListAsync();
         }
 
         // GET: Places/Details/5
@@ -34,7 +33,6 @@ namespace CinemaBack.Controllers
             }
 
             return await _context.Place
-                .Include(p => p.Hall)
                 .FirstOrDefaultAsync(m => m.Id == id);
         }
 

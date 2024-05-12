@@ -16,7 +16,5 @@ namespace CinemaBack.DB.Models
 
         [Column("Position"), Required]
         public int Position { get; set; }
-
-        public virtual Hall Hall { get; set; }
     }
 }
