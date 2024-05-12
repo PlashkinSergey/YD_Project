@@ -19,10 +19,7 @@ import { EditOrderComponent } from './system/shared/forms/edit-order/edit-order.
 @NgModule({
   declarations: [
     AppComponent,
-    EditFilmComponent,
-    AddFilmComponent,
-    AddOrderComponent,
-    EditOrderComponent
+
   ],
   imports: [
     BrowserModule,

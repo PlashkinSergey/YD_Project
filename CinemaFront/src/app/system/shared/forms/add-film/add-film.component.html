@@ -1,1 +1,25 @@
-<p>add-film works!</p>
+<form class="form-add-product" 
+    [formGroup]="form" 
+    (ngSubmit)="onSubmit()" 
+    *ngIf="distributors$ | async as distributors"
+>
+  <mat-form-field class="style_block_input">
+    <input matInput type="text" formControlName="name" placeholder="Название">
+  </mat-form-field>
+  <mat-form-field class="style_block_input">
+    <input matInput type="text" formControlName="type" placeholder="Жанр">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Дистрибьютор" 
+        formControlName="distributor" 
+        [(ngModel)]="idDistributor"
+        (ngModelChange)="onChange()"
+    >
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let d of distributors" [value]="d.id">
+            {{d.company}}
+        </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-flat-button class="button_add_film" type="submit">Добавить</button>
+</form>

@@ -41,7 +41,6 @@ export class MyValidatorService {
   dogInEmail(control: AbstractControl): Promise<any> {
     return new Promise((resolve, reject)=> {
       const email: string = control.value;
-      console.log(email);
       if (!email.includes('@')) {
         resolve({dogInEmail: true})
       } else {

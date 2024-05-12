@@ -10,8 +10,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { AddFilmComponent } from './shared/forms/add-film/add-film.component';
+import { EditFilmComponent } from './shared/forms/edit-film/edit-film.component';
+import { AddOrderComponent } from './shared/forms/add-order/add-order.component';
+import { EditOrderComponent } from './shared/forms/edit-order/edit-order.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -20,7 +28,11 @@ import {MatMenuModule} from '@angular/material/menu';
     FilmsComponent,
     UserPageComponent,
     OrderPageComponent,
-    SystemComponent
+    SystemComponent,
+    EditFilmComponent,
+    AddFilmComponent,
+    AddOrderComponent,
+    EditOrderComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +42,19 @@ import {MatMenuModule} from '@angular/material/menu';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule
+  ],
+  providers: [
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, 
+      useValue: {appearance: 'fill'}
+    }
   ]
 })
 export class SystemModule { }
