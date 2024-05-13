@@ -18,6 +18,7 @@ export class AddFilmComponent implements OnInit {
   idDistributor: string = "";
   distributors$!: Observable<Distributor[]>;
   distributor!: Distributor | undefined;
+  addFilm: boolean = false;
   constructor(
     private distributorService: DistributorService,
     private filmService: FilmService,
@@ -47,6 +48,7 @@ export class AddFilmComponent implements OnInit {
     this.filmService.createFilm(film).subscribe((film: Film) => {
       if (film) {
         this.toast.success("Фильм успешно добавлен!");
+        this.addFilm = true;
         return;
       }
       this.toast.success("Ошибка при добавлений");

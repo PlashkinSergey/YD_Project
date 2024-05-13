@@ -18,4 +18,8 @@ export class FilmService {
   createFilm(film: Film): Observable<Film> {
     return this.http.post<Film>(this.URL, film);
   }
+
+  deleteFilm(film: Film): Observable<boolean> {
+    return this.http.delete<boolean>(this.URL + '/' + film.id);
+  }
 }
