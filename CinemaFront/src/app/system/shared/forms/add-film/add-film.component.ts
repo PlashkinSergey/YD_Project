@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Distributor } from '../../models/distributor.model';
 import { Observable } from 'rxjs';
 import { DistributorService } from '../../services/distributor.service';
@@ -20,7 +19,6 @@ export class AddFilmComponent implements OnInit {
   distributors$!: Observable<Distributor[]>;
   distributor!: Distributor | undefined;
   constructor(
-    private router: Router,
     private distributorService: DistributorService,
     private filmService: FilmService,
     private toast: HotToastService,
@@ -42,14 +40,16 @@ export class AddFilmComponent implements OnInit {
   onSubmit(): void {
     if (!this.form.valid) return;
     const film = new Film(this.form.value.name,
-                          this.form.value.duration,
+                          `${this.form.value.duration}:00`,
                           this.form.value.type, 
                           this.form.value.director,
                           this.idDistributor);
     this.filmService.createFilm(film).subscribe((film: Film) => {
       if (film) {
-        this.toast.success("Film added successfully!");
+        this.toast.success("Фильм успешно добавлен!");
+        return;
       }
+      this.toast.success("Ошибка при добавлений");
     })
   }
   onChange(): void {

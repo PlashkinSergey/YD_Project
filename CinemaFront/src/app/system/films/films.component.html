@@ -1,1 +1,30 @@
-<button mat-flat-button (click)="openDialog()">Добавить фильм</button>
+<button mat-flat-button class="add_film" (click)="openDialog()">Добавить фильм</button>
+<div class="films" *ngIf="distributors$ | async as distributors">
+    <mat-card *ngFor="let f of (films$ | async)" class="film_card">
+        <mat-card-title>
+            <span>{{f.name}}</span>
+        </mat-card-title>
+        <mat-card-content>
+            <div class="film_info">
+                <p>
+                    Жанр: {{f.genre}}
+                </p>
+                <p>
+                    Режисёр: {{f.director}}
+                </p>
+                <p>
+                    Длительность: {{f.duration}}
+                </p>
+                <div class="dist_info" *ngIf="distributors | finddistributor:f as d">
+                    <mat-card-title> Дистрибьютор </mat-card-title>
+                    <p>
+                        Компания: {{d.company}}
+                    </p>
+                    <p>
+                        Страна: {{d.country}}
+                    </p>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
