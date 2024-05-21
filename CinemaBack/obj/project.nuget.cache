@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1cuSjXC2JzhDddwKc8Fge6jNisQHJXCPSLC7Yh/4VuoWJdLQylDqlXyZ7/WRf28lshqroOAKsEWPhRZa8+h9+g==",
+  "dgSpecHash": "vl84aKrkcGOkoSlyfAMSaqS+3XR8ibcipARTEAr4oD9dKi+OY03PIzu1EiDy8IJywt7lC0f2COFyGNIhf9mLbQ==",
   "success": true,
   "projectFilePath": "F:\\Вуз\\Управление данными\\Курсовая\\CinemaBack\\CinemaBack.csproj",
   "expectedPackageFiles": [
@@ -145,16 +145,5 @@
     "C:\\Users\\plash\\.nuget\\packages\\system.threading.tasks.dataflow\\7.0.0\\system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
     "C:\\Users\\plash\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "У пакета \"Npgsql\" 8.0.2 есть известная уязвимость https://github.com/advisories/GHSA-x9vc-6hfv-hg8c (уровень серьезности: высокий уровень)",
-      "libraryId": "Npgsql",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

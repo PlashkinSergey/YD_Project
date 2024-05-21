@@ -16,6 +16,12 @@ namespace CinemaBack.DB.Models
         [Column("HallId")]
         public Guid HallId { get; set; }
 
+        [Column("Date")]
+        public string Date { get; set; }
+
+        [Column]
+        public string Time { get; set; }
+
         [Column("Type")]
         public string Type { get; set; }
 

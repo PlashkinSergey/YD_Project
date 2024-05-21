@@ -6919,7 +6919,6 @@
       "NLog >= 5.2.8",
       "NLog.Extensions.Logging >= 5.3.8",
       "NLog.Web.AspNetCore >= 5.3.8",
-      "Npgsql >= 8.0.2",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.2",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
@@ -7012,10 +7011,6 @@
             "target": "Package",
             "version": "[5.3.8, )"
           },
-          "Npgsql": {
-            "target": "Package",
-            "version": "[8.0.2, )"
-          },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[8.0.2, )"
@@ -7047,17 +7042,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "У пакета \"Npgsql\" 8.0.2 есть известная уязвимость https://github.com/advisories/GHSA-x9vc-6hfv-hg8c (уровень серьезности: высокий уровень)",
-      "libraryId": "Npgsql",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

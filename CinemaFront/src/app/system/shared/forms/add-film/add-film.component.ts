@@ -55,7 +55,6 @@ export class AddFilmComponent implements OnInit {
     })
   }
   onChange(): void {
-    console.log(this.idDistributor);
     this.distributors$.subscribe((distributors: Distributor[]) => {
       this.distributor = distributors.find(distributor => distributor.id === this.idDistributor);
     });

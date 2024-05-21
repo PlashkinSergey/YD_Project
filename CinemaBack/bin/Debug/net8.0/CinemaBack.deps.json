@@ -18,7 +18,6 @@
           "NLog": "5.2.8",
           "NLog.Extensions.Logging": "5.3.8",
           "NLog.Web.AspNetCore": "5.3.8",
-          "Npgsql": "8.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.2",
           "Swashbuckle.AspNetCore": "6.4.0"
         },

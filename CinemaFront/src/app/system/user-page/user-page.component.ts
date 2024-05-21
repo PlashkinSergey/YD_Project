@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of, take } from 'rxjs';
 import { User } from '../../auth/shared/models/user.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../auth/shared/services/user.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-user-page',
@@ -10,12 +13,22 @@ import { User } from '../../auth/shared/models/user.model';
 export class UserPageComponent implements OnInit {
   
   user$!: Observable<User>;
-  constructor() { }
+  profileForm!: FormGroup;
+  constructor(
+    private usersService: UserService,
+    private toast: HotToastService) { }
 
   ngOnInit(): void {
     this.user$ = of<User>(JSON.parse(window.sessionStorage.getItem('user')!)).pipe(
       take(1)
     );
+    this.profileForm = new FormGroup({
+
+    });
   }
 
+  
+  saveProfile(): void {
+    if (!this.profileForm.valid) return;
+  }
 }

@@ -3,32 +3,44 @@
              align-items: center;
              justify-content: center;
              margin-top: 15px;">
-  <p>Добавить фильм</p>
+  <p style="font-size: 23px;">Добавить фильм</p>
   <form class="form-add-product" 
       [formGroup]="form" 
-      (ngSubmit)="onSubmit()" 
+      (ngSubmit)="onSubmit()"
       *ngIf="distributors$ | async as distributors"
   >
     <mat-form-field class="style_block_input">
       <mat-label>Название фильма</mat-label>
-      <input matInput type="text" formControlName="name" placeholder="Название">
+      <input matNativeControl type="text" formControlName="name" placeholder="Название">
+      <mat-error >
+
+      </mat-error>
     </mat-form-field>
     <mat-form-field class="style_block_input">
       <mat-label>Жанр фильма</mat-label>
-      <input matInput type="text" formControlName="type" placeholder="Жанр">
+      <input matNativeControl type="text" formControlName="type" placeholder="Жанр">
+      <mat-error>
+        
+      </mat-error>
     </mat-form-field>
     <mat-form-field class="style_block_input">
       <mat-label>Режисёр фильма</mat-label>
-      <input matInput type="text" formControlName="director" placeholder="Режисёр">
+      <input matNativeControl type="text" formControlName="director" placeholder="Режисёр">
+      <mat-error>
+        
+      </mat-error>
     </mat-form-field>
     <mat-form-field class="style_block_input">
       <mat-label>Продолжительность фильма</mat-label>
-      <input matInput type="time" formControlName="duration" placeholder="Продолжительность">
+      <input matNativeControl type="time" formControlName="duration" placeholder="Продолжительность">
+      <mat-error>
+        
+      </mat-error>
     </mat-form-field>
     <mat-form-field class="style_block_input">
       <mat-label>Дистрибьютор фильма</mat-label>
       <mat-select placeholder="Дистрибьютор" 
-          formControlName="distributor" 
+          formControlName="distributor"
           [(ngModel)]="idDistributor"
           (ngModelChange)="onChange()"
       >

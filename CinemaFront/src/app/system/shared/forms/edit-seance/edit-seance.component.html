@@ -1,0 +1,69 @@
+<div style=" display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             margin-top: 15px;" *ngIf="halls$ | async as halls">
+  <p style="font-size: 23px; margin-bottom: 25px;">Изменить сеанс</p>
+  <form class="form-add-product" [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="films$ | async as films">
+    <mat-form-field class="style_block_input">
+      <mat-label>Дата сеанса</mat-label>
+      <input matNativeControl type="text" formControlName="date" placeholder="Дата" [(ngModel)]="seance.date">
+    </mat-form-field>
+    <mat-form-field class="style_block_input">
+      <mat-label>Время сеанса</mat-label>
+      <input matNativeControl type="time" formControlName="time" placeholder="Время" [(ngModel)]="seance.time">
+      <mat-error>
+        
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="style_block_input">
+      <mat-label>Выбранный фильм</mat-label>
+      <mat-select placeholder="Фильм" 
+          formControlName="film" 
+          [(ngModel)]="seance.filmId"
+          
+      >
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let f of films" [value]="f.id">
+              {{f.name}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="style_block_input">
+      <mat-label>Выбранный зал</mat-label>
+      <mat-select matNativeControl placeholder="Зал" 
+          formControlName="hall" 
+          [(ngModel)]="seance.hallId"
+          
+      >
+          <mat-option>---</mat-option>
+          <mat-option *ngFor="let h of halls" [value]="h.id">
+              № {{h.numberHall}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="style_block_input">
+      <mat-label>Тип сеанса</mat-label>
+      <input matNativeControl type="text" formControlName="type" placeholder="Тип" [(ngModel)]="seance.type">
+      <mat-error>
+        
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="style_block_input">
+      <mat-label>Цена сеанса</mat-label>
+      <input matNativeControl type="text" formControlName="price" placeholder="Цена" [(ngModel)]="seance.price">
+      <mat-error>
+        
+      </mat-error>
+    </mat-form-field>
+    <p>
+        <button mat-flat-button class="button_add_film" type="submit" [mat-dialog-close]="true">
+          Изменить
+        </button>
+        <button mat-flat-button class="button_add_film" (click)="close()">
+          Отмена
+        </button>
+    </p>
+  </form>
+</div>
+

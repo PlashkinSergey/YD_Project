@@ -85,11 +85,15 @@ namespace CinemaBack.Controllers
             {
                 return null;
             }
-
             if (ModelState.IsValid)
             {
                 try
                 {
+                    var hash = new Hasher(user.Password).GetHash();
+                    if (user.Password != hash)
+                    {
+                        user.Password = hash;
+                    }
                     _context.User.Update(user);
                     await _context.SaveChangesAsync();
                 }

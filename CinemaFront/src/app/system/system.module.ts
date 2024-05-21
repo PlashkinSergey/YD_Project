@@ -6,14 +6,13 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { SystemRoutingModule } from './system-routing.module';
 import { OrderPageComponent } from './order-page/order-page.component';
 import { SystemComponent } from './system.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { AddFilmComponent } from './shared/forms/add-film/add-film.component';
-import { EditFilmComponent } from './shared/forms/edit-film/edit-film.component';
 import { AddOrderComponent } from './shared/forms/add-order/add-order.component';
 import { EditOrderComponent } from './shared/forms/edit-order/edit-order.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +22,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import { FinddistributorPipe } from './shared/pipes/finddistributor.pipe';
+import { FilmPipe } from './shared/pipes/film.pipe';
+import { HallPipe } from './shared/pipes/hall.pipe';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { EditSeanceComponent } from './shared/forms/edit-seance/edit-seance.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +34,13 @@ import { FinddistributorPipe } from './shared/pipes/finddistributor.pipe';
     UserPageComponent,
     OrderPageComponent,
     SystemComponent,
-    EditFilmComponent,
     AddFilmComponent,
     AddOrderComponent,
     EditOrderComponent,
-    FinddistributorPipe
+    FinddistributorPipe,
+    FilmPipe,
+    HallPipe,
+    EditSeanceComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +58,8 @@ import { FinddistributorPipe } from './shared/pipes/finddistributor.pipe';
     MatFormFieldModule,
     MatSelectModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatAutocompleteModule
   ],
   providers: [
     {
