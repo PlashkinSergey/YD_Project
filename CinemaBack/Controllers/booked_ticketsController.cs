@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CinemaBack.DB;
 using CinemaBack.DB.Models;
@@ -41,12 +36,14 @@ namespace CinemaBack.Controllers
                 .FirstOrDefaultAsync(m => m.OrderId == id);
         }
 
-        [HttpPost]
-        public async Task<booked_tickets?> Create(booked_tickets booked_ticket)
+        [HttpPost("order={idOrder:guid}/ticket={idTicket:guid}")]
+        public async Task<booked_tickets?> CreateByIds(Guid idOrder, Guid idTicket, booked_tickets booked_ticket)
         {
             if (ModelState.IsValid)
             {
                 booked_ticket.Id = Guid.NewGuid();
+                booked_ticket.OrderId = idOrder;
+                booked_ticket.TicketId = idTicket;
                 _context.Add(booked_ticket);
                 await _context.SaveChangesAsync();
                 return booked_ticket;
@@ -54,9 +51,6 @@ namespace CinemaBack.Controllers
             return null;
         }
 
-        // POST: booked_tickets/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPut("{id:guid}")]
         public async Task<Boolean> Edit(Guid id, booked_tickets booked_tickets)
         {

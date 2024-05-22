@@ -52,10 +52,6 @@
       </mat-sidenav-container>
       
       <mat-menu #userMenu="matMenu">
-        <button mat-menu-item [routerLink]="['/system', 'user']">
-          <mat-icon>account_circle</mat-icon>
-          Профиль
-        </button>
         <button mat-menu-item (click)="logout()">
           <mat-icon>logout</mat-icon>
             Выйти
