@@ -57,8 +57,7 @@ export class HomeComponent implements OnInit {
 
     dialogref.afterClosed().subscribe((result: boolean) => {
         this.seances$ = this.seanceService.Seances;
-      }
-    );
+     });
   }
   
 }

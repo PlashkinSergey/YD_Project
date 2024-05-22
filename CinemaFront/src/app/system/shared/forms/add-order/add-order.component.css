@@ -1,0 +1,62 @@
+
+.form-add-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 450px;
+    margin-top: 10px;
+  }
+  
+  .button_add_film {
+    padding: 10px;
+    font-size: 18px;
+    font-family: sans-serif;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 20px;
+  }
+  
+  
+  button:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.7s;
+  }
+  
+  button:not(:hover) {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    transition: 0.7s;
+  }
+  
+  input[type="text"]:focus {
+    cursor: text;
+  }
+  
+  .name-error {
+    color: #f43648;
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+  
+  .style_block_input {
+    max-height: 73px;
+    width: 107%;
+  }
+  
+  .text {
+    margin-top: 15px;
+    font-size: 20px;
+  }
+
+  .select_style {
+    width: 85%;
+  }
+  
+  .select {
+    margin-left: 10px;
+  }

@@ -1,1 +1,90 @@
+<div style=" display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             margin-top: 15px;">
+  <p style="font-size: 23px; margin-bottom: 25px;">Сделать заказ</p>
+  <form class="form-add-product" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="style_block_input">
+        <mat-label>Сотрудник</mat-label>
+        <mat-select placeholder="Сотрудник" 
+            formControlName="employee"
+            [(ngModel)]="idEmployee">
+            <mat-option>---</mat-option>
+            <mat-option *ngFor="let e of (employees$ | async)" [value]="e.id">
+                {{e.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="style_block_input">
+        <mat-label>Клиент</mat-label>
+        <input matNativeControl type="text" formControlName="user" placeholder="Клиент" 
+            [ngModel]="user?.name" readonly>
+      </mat-form-field>
+
+    <mat-form-field class="style_block_input">
+      <mat-label>Выбранный фильм</mat-label>
+      <mat-select placeholder="Фильм" 
+          formControlName="film"
+          [(ngModel)]="idFilm"
+          (ngModelChange)="onChangeFilm()">
+          <mat-option *ngFor="let f of (films$ | async)" [value]="f.id">
+            {{f.name}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field class="style_block_input">
+      <mat-label>Выбранный зал</mat-label>
+      <mat-select matNativeControl placeholder="Зал" 
+          formControlName="hall"
+          [(ngModel)]="idHall"
+          (ngModelChange)="onChangeHall()">
+          <mat-option *ngFor="let h of (halls$ | async)" [value]="h.id" [disabled]="!selectFilm">
+            № {{h.numberHall}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div style="display:flex;"> 
+        <mat-form-field class="select_input">
+            <mat-label>Время сеанса</mat-label>
+            <mat-select matNativeControl formControlName="time" 
+                        placeholder="Время"
+                        [(ngModel)]="time"
+                        (ngModelChange)="onChangeSeance()">
+                <mat-option *ngFor="let s of (seances$ | async)" 
+                            [value]="s.time" 
+                            [disabled]="!selectFilm && !selectHall">
+                    {{s.time}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="select_input select">
+            <mat-label>Дата сеанса</mat-label>
+            <mat-select matNativeControl formControlName="date" 
+                        placeholder="Дата"
+                        [(ngModel)]="date"
+                        (ngModelChange)="onChangeSeance()">
+                <mat-option *ngFor="let s of (seances$ | async)" 
+                            [value]="s.date" 
+                            [disabled]="!selectFilm && !selectHall">
+                    {{s.date}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <p>
+        <button mat-flat-button class="button_add_film" type="submit" [mat-dialog-close]="true">
+          Сделать заказ
+        </button>
+        <button mat-flat-button class="button_add_film" (click)="close()">
+          Отмена
+        </button>
+    </p>
+  </form>
+</div>
+
 

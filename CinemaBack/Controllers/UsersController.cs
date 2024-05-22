@@ -42,10 +42,11 @@ namespace CinemaBack.Controllers
         }
 
         [HttpGet("type={type}")]
-        public async Task<User?> UserByType(string type)
+        public async Task<List<User>> UserByType(string type)
         {
             return await _context.User
-                .FirstOrDefaultAsync(m => m.Type == type);
+                .Where(u => u.Type == type)
+                .Select(u => u).ToListAsync();
         }
 
         [HttpGet("email={email}/password={password}")]
