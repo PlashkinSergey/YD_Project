@@ -24,7 +24,7 @@ namespace CinemaBack.Controllers
 
         // GET: Tickets/Details/5
         [HttpGet("{id:guid}")]
-        public async Task<Ticket?> Details(Guid? id)
+        public async Task<Ticket?> Details(Guid id)
         {
             if (id == null)
             {
@@ -52,7 +52,6 @@ namespace CinemaBack.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPut("{id:guid}")]
-        [ValidateAntiForgeryToken]
         public async Task<Boolean> Edit(Guid id, Ticket ticket)
         {
             if (id != ticket.Id)

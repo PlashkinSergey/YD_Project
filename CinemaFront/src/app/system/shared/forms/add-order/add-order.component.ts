@@ -11,7 +11,9 @@ import { HallService } from '../../services/hall.service';
 import { Seance } from '../../models/seance.model';
 import { SeanceService } from '../../services/seance.service';
 import { HotToastService } from '@ngneat/hot-toast';
-import { time } from 'console';
+import { Ticket } from '../../models/ticket.model';
+import { Place } from '../../models/place.model';
+import { PlaceService } from '../../services/place.service';
 
 @Component({
   selector: 'app-add-order',
@@ -22,7 +24,9 @@ export class AddOrderComponent implements OnInit {
   employees$!: Observable<User[]>
   films$!: Observable<Film[]>
   halls$!: Observable<Hall[]>
+  places$!: Observable<Place[]>
   seances$!: Observable<Seance[]>
+  tickets: Ticket[] = [];
 
   form!: FormGroup;
   user?: User;
@@ -40,6 +44,7 @@ export class AddOrderComponent implements OnInit {
     private filmService: FilmService,
     private hallService: HallService,
     private seanceService: SeanceService,
+    private placeService: PlaceService,
     private toastr: HotToastService
   ) { }
 
@@ -48,13 +53,16 @@ export class AddOrderComponent implements OnInit {
     this.employees$ = this.userService.userByType("Сотрудник");
     this.films$ = this.filmService.Films;
     this.halls$ = this.hallService.Halls;
+    this.tickets.push(new Ticket(0, 0, ''));
     this.form = new FormGroup({
       'employee': new FormControl('', Validators.required),
       'user': new FormControl('', Validators.required),
       'time': new FormControl('', Validators.required),
       'film': new FormControl('', Validators.required),
       'hall': new FormControl('', Validators.required),
-      'date': new FormControl('', Validators.required)
+      'date': new FormControl('', Validators.required),
+      "row" : new FormControl('', Validators.required),
+      "position": new FormControl('', Validators.required)
     });
   }
 
@@ -67,6 +75,14 @@ export class AddOrderComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  addTicket(): void {
+    this.tickets.push(new Ticket(0, 0, ''));
+  }
+
+  delTicket(): void {
+    this.tickets.pop();
+  }
+  
   onChangeFilm(): void {
     console.log(this.idFilm);
     this.selectFilm = this.idFilm !== '' ? true : this.selectFilm;
@@ -88,6 +104,7 @@ export class AddOrderComponent implements OnInit {
     this.seances$ = this.seances$.pipe(
       map((seances: Seance[]) => seances.filter(seance => seance.hallId === this.idHall))
     );
+    this.places$ = this.placeService.getPlacesByHallId(this.idHall);
   }
 
   onChangeSeance(): void {

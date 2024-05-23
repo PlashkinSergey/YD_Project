@@ -1,8 +1,9 @@
-<div style=" display: flex;
+<div style="display: flex;
              flex-direction: column;
              align-items: center;
              justify-content: center;
-             margin-top: 15px;">
+             margin-top: 15px;
+             height: 100%;">
   <p style="font-size: 23px; margin-bottom: 25px;">Сделать заказ</p>
   <form class="form-add-product" [formGroup]="form" (ngSubmit)="onSubmit()">
 
@@ -48,6 +49,7 @@
       </mat-select>
     </mat-form-field>
 
+    
     <div style="display:flex;"> 
         <mat-form-field class="select_input">
             <mat-label>Время сеанса</mat-label>
@@ -76,6 +78,36 @@
             </mat-select>
         </mat-form-field>
     </div>
+
+    <button (click)="addTicket()"><mat-icon >plus_one</mat-icon></button>
+    <button (click)="delTicket()"><mat-icon >plus_one</mat-icon></button>
+    <div style="display:flex;" *ngFor="let t of tickets"> 
+        <mat-form-field class="select_input">
+            <mat-label>Ряд</mat-label>
+            <mat-select matNativeControl formControlName="row"
+                        placeholder="Ряд"
+                        [(ngModel)]="t.row">
+                <mat-option *ngFor="let p of (places$ | async)"
+                            [value]="p.row" 
+                            [disabled]="!selectFilm && !selectHall">
+                    {{p.row}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="select_input select">
+            <mat-label>Место</mat-label>
+            <mat-select matNativeControl formControlName="position"
+                        placeholder="Место"
+                        [(ngModel)]="t.place">
+                <mat-option *ngFor="let p of (places$ | async)" 
+                            [value]="p.position" 
+                            [disabled]="!selectFilm && !selectHall">
+                    {{p.position}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
     <p>
         <button mat-flat-button class="button_add_film" type="submit" [mat-dialog-close]="true">
           Сделать заказ

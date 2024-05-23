@@ -35,6 +35,15 @@ namespace CinemaBack.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id);
         }
 
+        [HttpGet("hallId={hallId:guid}")]
+        public async Task<List<Place>> GetByHallId(Guid hallId)
+        {
+            return await _context.Place
+                .Where(p => p.HallId == hallId)
+                .Select(p => p)
+                .ToListAsync();
+        }
+
         [HttpPost]
         public async Task<Place?> Create(Place place)
         {
