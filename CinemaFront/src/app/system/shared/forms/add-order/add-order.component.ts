@@ -39,6 +39,7 @@ export class AddOrderComponent implements OnInit {
   idHall: string = '';
   selectFilm: boolean = false;
   selectHall: boolean = false;
+  correctTicket: boolean = false;
   time: string = '';
   date: string = '';
 
@@ -60,8 +61,7 @@ export class AddOrderComponent implements OnInit {
     this.seanceService.Seances.subscribe((seance: Seance[]) => this.seances = seance);
     this.films$ = this.filmService.Films;
     this.halls$ = this.hallService.Halls;
-    this.tickets.push(
-      {
+    this.tickets.push({
         row:	0,
         place: 0,
         seanceId: '',
@@ -81,19 +81,14 @@ export class AddOrderComponent implements OnInit {
 
   onSubmit(): void {
     if (!this.form.valid) return;
-    if (!this.onChangeTicket()) return;
     const date: Date = new Date();
     let order: Order = new Order( 
       date.toLocaleDateString('ru-RU'),
       this.idEmployee,
       this.user?.id
     );
-    console.log(this.seances);
     this.tickets.forEach((ticket: Ticket)  => {
       ticket.seanceId = this.seances[0].id;
-    })
-    console.log(this.tickets);
-    this.tickets.forEach((ticket: Ticket)  => {
       this.ticketService.createTicket(ticket).subscribe((t: Ticket) => ticket.id = t.id);
     })
     this.orderService.createOrder(order).subscribe((o: Order) => {
@@ -108,6 +103,10 @@ export class AddOrderComponent implements OnInit {
   }
 
   addTicket(): void {
+    if (this.tickets.length === 3) {
+      this.toastr.error("Много выбрано мест.");
+      return;
+    }
     this.tickets.push({
       row:	0,
       place: 0,
@@ -120,7 +119,6 @@ export class AddOrderComponent implements OnInit {
   }
   
   onChangeFilm(): void {
-    console.log(this.idFilm);
     this.selectFilm = this.idFilm !== '' ? true : this.selectFilm;
     if (!this.selectFilm) return;
     this.seances = this.seances.filter((s: Seance) => s.filmId === this.idFilm);
@@ -144,12 +142,15 @@ export class AddOrderComponent implements OnInit {
     this.seances = this.seances.filter((s: Seance) => s.time && s.date === this.date);
   }
 
-  onChangeTicket(): boolean  {
-    let flag: boolean  = true;
-    const seance: Seance  = this.seances[0];
-    this.ticketService.getTicketsBySeanceId(seance.id!).subscribe((tickets: Ticket[])  => {
-      
+  onChangeTicket(): void  {
+    this.correctTicket = false;
+    this.ticketService.getTicketsBySeanceId(this.seances[0].id).subscribe((tickets: Ticket[]) => {
+      tickets.forEach((t1: Ticket) => {
+        this.tickets.forEach((t2: Ticket) => {
+          this.correctTicket = (t1.row  ===  t2.row && t1.place ===  t2.place) ? true  : this.correctTicket;
+        });
+      });
+      this.correctTicket ? this.toastr.error("Место занято. \n Выберете другое место.") : '';
     });
-    return flag;
   }
 }

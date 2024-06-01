@@ -27,10 +27,6 @@ export class SeanceService {
     return this.http.get<Seance>(`${this.URL}/filmId=${filmid}`);
   }
 
-  getSeancesByFilmId(filmId: string): Observable<Seance[]> {
-    return this.http.get<Seance[]>(`${this.URL}/filmId=${filmId}`);
-  }
-
   updateSeance(seance: Seance): Observable<boolean> {
     return this.http.put<boolean>(`${this.URL}/${seance.id}`, seance);
   }

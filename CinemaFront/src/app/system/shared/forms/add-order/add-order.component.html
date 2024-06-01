@@ -79,8 +79,10 @@
         </mat-form-field>
     </div>
 
-    <button (click)="addTicket()" type="button"><mat-icon >plus_one</mat-icon></button>
-    <mat-icon (click)="delTicket()" type="button">plus_one</mat-icon>
+    <p style="margin: 5px;">
+        <mat-icon (click)="addTicket()" style="cursor: pointer;">plus_one</mat-icon>
+        <mat-icon (click)="delTicket()" style="cursor: pointer; float: right;">plus_one</mat-icon>
+    </p>
 
     <div style="display:flex;" *ngFor="let t of tickets"> 
         <mat-form-field class="select_input">
@@ -112,7 +114,8 @@
     </div>
 
     <p>
-        <button mat-flat-button class="button_add_film" type="submit" [mat-dialog-close]="true">
+        <button mat-flat-button class="button_add_film" type="submit" 
+                [disabled]="!correctTicket" [mat-dialog-close]="true">
           Сделать заказ
         </button>
         <button mat-flat-button class="button_add_film" (click)="close()">

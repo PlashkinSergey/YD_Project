@@ -12,7 +12,7 @@ export class TicketService {
 
   private readonly URL: string = 'https://localhost:7039/api/Tickets';
 
-  getTicketsBySeanceId(seanceId: string): Observable<Ticket[]>  {
+  getTicketsBySeanceId(seanceId: string | undefined): Observable<Ticket[]>  {
     return this.http.get<Ticket[]>(`${this.URL}/seanceId=${seanceId}`);
   }
 
