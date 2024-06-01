@@ -9,9 +9,9 @@ namespace CinemaBack.DB.Models
         public Guid Id { get; set; }
 
         [Required, Column("OrderId")]
-        public Guid OrderId { get; set; }
+        public Guid? OrderId { get; set; }
 
         [Required, Column("TicketId")]
-        public Guid TicketId { get; set; }
+        public Guid? TicketId { get; set; }
     }
 }

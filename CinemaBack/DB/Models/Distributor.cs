@@ -9,12 +9,12 @@ namespace CinemaBack.DB.Models
         public Guid Id { get; set; }
 
         [Column("Company"), Required]
-        public string Company { get; set; }
+        public string? Company { get; set; }
 
         [Column("Country"), Required]
-        public string Country { get; set; }
+        public string? Country { get; set; }
 
         [Column("Site"), Required]
-        public string Site { get; set; }
+        public string? Site { get; set; }
     }
 }

@@ -30,22 +30,18 @@ namespace CinemaBack.Migrations
                         .HasColumnName("DataUserID");
 
                     b.Property<string>("Inn")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("Inn");
 
                     b.Property<string>("PasNum")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("PassportNumber");
 
                     b.Property<string>("PasSer")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("PassportSeries");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("Phone");
 
@@ -128,7 +124,8 @@ namespace CinemaBack.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("HallId");
 
-                    b.Property<int>("NumberHall")
+                    b.Property<int?>("NumberHall")
+                        .IsRequired()
                         .HasColumnType("integer")
                         .HasColumnName("NumberHall");
 
@@ -144,7 +141,8 @@ namespace CinemaBack.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("OrderId");
 
-                    b.Property<Guid>("EmployeeId")
+                    b.Property<Guid?>("EmployeeId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("EmployeeId");
 
@@ -153,7 +151,8 @@ namespace CinemaBack.Migrations
                         .HasColumnType("text")
                         .HasColumnName("RegistrationDate");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("UserId");
 
@@ -169,15 +168,18 @@ namespace CinemaBack.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("PlaceId");
 
-                    b.Property<Guid>("HallId")
+                    b.Property<Guid?>("HallId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("HallId");
 
-                    b.Property<int>("Position")
+                    b.Property<int?>("Position")
+                        .IsRequired()
                         .HasColumnType("integer")
                         .HasColumnName("Position");
 
-                    b.Property<int>("Row")
+                    b.Property<int?>("Row")
+                        .IsRequired()
                         .HasColumnType("integer")
                         .HasColumnName("Row");
 
@@ -198,11 +200,13 @@ namespace CinemaBack.Migrations
                         .HasColumnType("text")
                         .HasColumnName("Date");
 
-                    b.Property<Guid>("FilmId")
+                    b.Property<Guid?>("FilmId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("FilmId");
 
-                    b.Property<Guid>("HallId")
+                    b.Property<Guid?>("HallId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("HallId");
 
@@ -213,7 +217,8 @@ namespace CinemaBack.Migrations
 
                     b.Property<string>("Time")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("text")
+                        .HasColumnName("Time");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -232,15 +237,18 @@ namespace CinemaBack.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("TicketId");
 
-                    b.Property<int>("Place")
+                    b.Property<int?>("Place")
+                        .IsRequired()
                         .HasColumnType("integer")
                         .HasColumnName("Place");
 
-                    b.Property<int>("Row")
+                    b.Property<int?>("Row")
+                        .IsRequired()
                         .HasColumnType("integer")
                         .HasColumnName("Row");
 
-                    b.Property<Guid>("SeanceId")
+                    b.Property<Guid?>("SeanceId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("SeanceId");
 
@@ -288,11 +296,13 @@ namespace CinemaBack.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("Id");
 
-                    b.Property<Guid>("OrderId")
+                    b.Property<Guid?>("OrderId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("OrderId");
 
-                    b.Property<Guid>("TicketId")
+                    b.Property<Guid?>("TicketId")
+                        .IsRequired()
                         .HasColumnType("uuid")
                         .HasColumnName("TicketId");
 

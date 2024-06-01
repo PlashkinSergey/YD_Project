@@ -11,15 +11,15 @@ namespace CinemaBack.DB.Models
         public Guid Id { get; set; }
 
         [Column("Name"), Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Column("Password"), Required]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         [Column("Email"), Required]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         [Column("Type"), Required]
-        public string Type { get; set; }
+        public string? Type { get; set; }
     }
 }

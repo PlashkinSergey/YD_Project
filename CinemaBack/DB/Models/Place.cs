@@ -8,13 +8,13 @@ namespace CinemaBack.DB.Models
         [Key, Column("PlaceId")]
         public Guid Id { get; set; }
 
-        [Column("HallId")]
-        public Guid HallId { get; set; }
+        [Column("HallId"), Required]
+        public Guid? HallId { get; set; }
 
         [Column("Row"), Required]
-        public int Row { get; set; }
+        public int? Row { get; set; }
 
         [Column("Position"), Required]
-        public int Position { get; set; }
+        public int? Position { get; set; }
     }
 }

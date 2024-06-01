@@ -8,13 +8,13 @@ namespace CinemaBack.DB.Models
         [Key, Column("OrderId")]
         public Guid Id { get; set; }
 
-        [Column("EmployeeId")]
-        public Guid EmployeeId { get; set; }
+        [Column("EmployeeId"), Required]
+        public Guid? EmployeeId { get; set; }
 
-        [Column("UserId")]
-        public Guid UserId { get; set; }
+        [Column("UserId"), Required]
+        public Guid? UserId { get; set; }
 
         [Column("RegistrationDate"), Required]
-        public string RegDate { get; set; }
+        public string? RegDate { get; set; }
     }
 }

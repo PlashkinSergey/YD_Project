@@ -2,7 +2,7 @@ import { Component,  OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UserService } from '../../../../auth/shared/services/user.service';
-import { map, Observable, timeout } from 'rxjs';
+import { map, Observable, take, timeout } from 'rxjs';
 import { User } from '../../../../auth/shared/models/user.model';
 import { Film } from '../../models/film.model';
 import { FilmService } from '../../services/film.service';
@@ -29,7 +29,7 @@ export class AddOrderComponent implements OnInit {
   films$!: Observable<Film[]>
   halls$!: Observable<Hall[]>
   places$!: Observable<Place[]>
-  seances: Seance[] = [];
+  seances$!: Observable<Seance[]>;
   tickets: Ticket[] = [];
 
   form!: FormGroup;
@@ -58,15 +58,10 @@ export class AddOrderComponent implements OnInit {
   ngOnInit(): void {
     this.userService.CurrentUser.subscribe((curUser: User) => this.user = curUser);
     this.employees$ = this.userService.userByType("Сотрудник");
-    this.seanceService.Seances.subscribe((seance: Seance[]) => this.seances = seance);
+    this.seances$ = this.seanceService.Seances;
     this.films$ = this.filmService.Films;
     this.halls$ = this.hallService.Halls;
-    this.tickets.push({
-        row:	0,
-        place: 0,
-        seanceId: '',
-      }
-    );
+    this.tickets = [{ row:	0, place: 0, seanceId: ''}];
     this.form = new FormGroup({
       'employee': new FormControl('', Validators.required),
       'user': new FormControl('', Validators.required),
@@ -87,15 +82,17 @@ export class AddOrderComponent implements OnInit {
       this.idEmployee,
       this.user?.id
     );
-    this.tickets.forEach((ticket: Ticket)  => {
-      ticket.seanceId = this.seances[0].id;
-      this.ticketService.createTicket(ticket).subscribe((t: Ticket) => ticket.id = t.id);
+    this.seances$.subscribe((seances: Seance[]) => {
+      this.tickets.forEach((ticket: Ticket)  => {
+        ticket.seanceId = seances[0].id;
+        this.ticketService.createTicket(ticket).subscribe((t: Ticket) => ticket.id = t.id);
+      })
+      this.orderService.createOrder(order).subscribe((o: Order) => {
+        for (let ticket of this.tickets)  {
+          this.orderService.createBooked_Ticket(o.id!, ticket.id!).subscribe();
+        }
+      });
     })
-    this.orderService.createOrder(order).subscribe((o: Order) => {
-      for (let ticket of this.tickets)  {
-        this.orderService.createBooked_Ticket(o.id!, ticket.id!).subscribe();
-      }
-    });
    }
 
   close(): void {
@@ -107,11 +104,7 @@ export class AddOrderComponent implements OnInit {
       this.toastr.error("Много выбрано мест.");
       return;
     }
-    this.tickets.push({
-      row:	0,
-      place: 0,
-      seanceId: '',
-    });
+    this.tickets = [...this.tickets, ...[{ row:	0, place: 0, seanceId: ''}]]
   }
 
   delTicket(): void {
@@ -121,36 +114,48 @@ export class AddOrderComponent implements OnInit {
   onChangeFilm(): void {
     this.selectFilm = this.idFilm !== '' ? true : this.selectFilm;
     if (!this.selectFilm) return;
-    this.seances = this.seances.filter((s: Seance) => s.filmId === this.idFilm);
-    if (this.seances.length === 0) {
-      this.toastr.error("Пока нет сеансов на данный фильм. \n Выберете другой.");
-      this.selectFilm = false;
-      return;
-    }
-    this.toastr.success("Сеансы найдены!");
+    this.seances$ = this.seances$.pipe(
+      map((seances: Seance[]) => seances.filter((s: Seance) => s.filmId === this.idFilm))
+    );
+    this.seances$.subscribe((seances: Seance[])=> {
+      if (seances.length === 0) {
+        this.toastr.error("Пока нет сеансов на данный фильм. \n Выберете другой.");
+        this.selectFilm = false;
+        return;
+      }
+      this.toastr.success("Сеансы найдены!");
+    });
   }
 
   onChangeHall(): void {
     this.selectHall = this.idHall !== '' ? true : this.selectHall;
     if (!this.selectHall) return;
-    this.seances = this.seances.filter((s: Seance) => s.hallId === this.idHall);
+    this.seances$ = this.seances$.pipe(
+      map((seances: Seance[]) => seances.filter((s: Seance) => s.hallId === this.idHall))
+    );
     this.places$ = this.placeService.getPlacesByHallId(this.idHall);
   }
 
   onChangeSeance(): void {
     if (this.time === '' || this.date === '') return;
-    this.seances = this.seances.filter((s: Seance) => s.time && s.date === this.date);
+    this.seances$ = this.seances$.pipe(
+      map((seances: Seance[]) => seances.filter((s: Seance) => s.time == this.time && s.date === this.date))
+    );
   }
 
   onChangeTicket(): void  {
-    this.correctTicket = false;
-    this.ticketService.getTicketsBySeanceId(this.seances[0].id).subscribe((tickets: Ticket[]) => {
-      tickets.forEach((t1: Ticket) => {
-        this.tickets.forEach((t2: Ticket) => {
-          this.correctTicket = (t1.row  ===  t2.row && t1.place ===  t2.place) ? true  : this.correctTicket;
+    this.seances$.subscribe((seances: Seance[]) => {
+      this.correctTicket = true;
+      this.ticketService.getTicketsBySeanceId(seances[0].id).subscribe((tickets: Ticket[]) => {
+        tickets.forEach((t1: Ticket) => {
+          this.tickets.forEach((t2: Ticket) => {
+            if (t1.row === t2.row && t1.place === t2.place) {
+              this.correctTicket = false;
+            }
+          });
         });
+        !this.correctTicket ? this.toastr.error("Место занято. \n Выберете другое место.") : '';
       });
-      this.correctTicket ? this.toastr.error("Место занято. \n Выберете другое место.") : '';
-    });
+    })
   }
 }

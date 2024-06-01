@@ -36,6 +36,14 @@ namespace CinemaBack.Controllers
             return order != null ? order : null;
         }
 
+        [HttpGet("user={userId:guid}")]
+        public async Task<List<Order>> GetOrdersByUserId(Guid? userId)
+        {
+            return await _context.Order
+                .Where(o => o.UserId == userId).ToListAsync() ;
+        }
+
+
         // POST: Orders/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.

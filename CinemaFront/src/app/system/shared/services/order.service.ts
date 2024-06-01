@@ -15,6 +15,10 @@ export class OrderService {
 
   private readonly URLB_T: string = 'https://localhost:7039/api/booked_tickets'
 
+  getOrderByUserId(userId: string): Observable<Order[]>   {
+    return this.http.get<Order[]>(`${this.URL}/user=${userId}`);
+  }
+  
   createOrder(order: Order): Observable<Order>  {
     return this.http.post<Order>(this.URL, order);
   }

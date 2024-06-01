@@ -10,22 +10,22 @@ namespace CinemaBack.DB.Models
         [Key, Column("SeanceId")]
         public Guid Id { get; set; }
 
-        [Column("FilmId")]
-        public Guid FilmId { get; set; }
+        [Column("FilmId"), Required]
+        public Guid? FilmId { get; set; }
 
-        [Column("HallId")]
-        public Guid HallId { get; set; }
+        [Column("HallId"), Required]
+        public Guid? HallId { get; set; }
 
-        [Column("Date")]
-        public string Date { get; set; }
+        [Column("Date"), Required]
+        public string? Date { get; set; }
 
-        [Column]
-        public string Time { get; set; }
+        [Column("Time"), Required]
+        public string? Time { get; set; }
 
-        [Column("Type")]
-        public string Type { get; set; }
+        [Column("Type"), Required]
+        public string? Type { get; set; }
 
-        [Column("Price")]
-        public string Price { get; set; }
+        [Column("Price"), Required]
+        public string? Price { get; set; }
     }
 }

@@ -14,15 +14,15 @@ namespace CinemaBack.DB.Models
         public Guid UserId { get; set; }
 
         [Column("Phone")]
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
 
         [Column("Inn")]
-        public string Inn { get; set; } = string.Empty;
+        public string? Inn { get; set; } = string.Empty;
 
         [Column("PassportSeries")]
-        public string PasSer { get; set; } = string.Empty;
+        public string? PasSer { get; set; } = string.Empty;
 
         [Column("PassportNumber")]
-        public string PasNum { get; set; } = string.Empty;
+        public string? PasNum { get; set; } = string.Empty;
     }
 }

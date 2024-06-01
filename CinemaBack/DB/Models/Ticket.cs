@@ -10,12 +10,12 @@ namespace CinemaBack.DB.Models
         public Guid Id { get; set; }
 
         [Column("SeanceId"), Required]
-        public Guid SeanceId { get; set; }
+        public Guid? SeanceId { get; set; }
 
         [Column("Row"), Required]
-        public int Row { get; set; }
+        public int? Row { get; set; }
 
         [Column("Place"), Required]
-        public int Place { get; set; }
+        public int? Place { get; set; }
     }
 }

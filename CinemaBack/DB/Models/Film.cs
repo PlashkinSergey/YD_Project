@@ -13,15 +13,15 @@ namespace CinemaBack.DB.Models
         public Guid DistributorId { get; set; }
 
         [Column("NameFilm"), Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Column("Duration"), Required]
-        public string Duration { get; set; }
+        public string? Duration { get; set; }
 
         [Column("Genre"), Required]
-        public string Genre { get; set; }
+        public string? Genre { get; set; }
 
         [Column("Director"), Required]
-        public string Director { get; set; }
+        public string? Director { get; set; }
     }
 }
