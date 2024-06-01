@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using CinemaBack.DB;
 using CinemaBack.DB.Models;
+using System.Net.Sockets;
 
 namespace CinemaBack.Controllers
 {
@@ -26,31 +27,44 @@ namespace CinemaBack.Controllers
         [HttpGet("{id:guid}")]
         public async Task<Ticket?> Details(Guid id)
         {
-            if (id == null)
-            {
-                return null;
-            }
             return await _context.Ticket
                 .FirstOrDefaultAsync(m => m.Id == id);
         }
 
+        [HttpGet("seanceId={seanceId:guid}")]
+        public async Task<List<Ticket>> GetTicketsBySeanceId(Guid seanceId)
+        {
+            return await _context.Ticket
+                .Where(t=> t.SeanceId == seanceId).ToListAsync();
+        }
+
+
         // POST: Tickets/Create
         [HttpPost]
-        public async Task<Ticket?> Create(Ticket ticket)
+        public async Task<Ticket?> CreateTicket(Ticket ticket)
         {
             if (ModelState.IsValid)
             {
                 ticket.Id = Guid.NewGuid();
-                _context.Add(ticket);
+                _context.Ticket.Add(ticket);
                 await _context.SaveChangesAsync();
                 return ticket;
             }
             return null;
         }
 
-        // POST: Tickets/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost("tickets")]
+        public async Task<List<Ticket>?> CreateTickets(List<Ticket> tickets)
+        {
+            foreach (Ticket t in tickets)
+            {
+                t.Id = Guid.NewGuid();
+               _context.Ticket.Add(t);
+            }
+            await _context.SaveChangesAsync();
+            return tickets;
+        }
+
         [HttpPut("{id:guid}")]
         public async Task<Boolean> Edit(Guid id, Ticket ticket)
         {

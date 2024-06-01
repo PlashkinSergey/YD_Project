@@ -45,7 +45,7 @@ namespace CinemaBack.Controllers
             if (ModelState.IsValid)
             {
                 order.Id = Guid.NewGuid();
-                _context.Add(order);
+                _context.Order.Add(order);
                 await _context.SaveChangesAsync();
                 return order;
             }

@@ -4,7 +4,7 @@
              justify-content: center;
              margin-top: 15px;
              height: 100%;">
-  <p style="font-size: 23px; margin-bottom: 25px;">Сделать заказ</p>
+
   <form class="form-add-product" [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <mat-form-field class="style_block_input">
@@ -57,7 +57,7 @@
                         placeholder="Время"
                         [(ngModel)]="time"
                         (ngModelChange)="onChangeSeance()">
-                <mat-option *ngFor="let s of (seances$ | async)" 
+                <mat-option *ngFor="let s of seances" 
                             [value]="s.time" 
                             [disabled]="!selectFilm && !selectHall">
                     {{s.time}}
@@ -70,7 +70,7 @@
                         placeholder="Дата"
                         [(ngModel)]="date"
                         (ngModelChange)="onChangeSeance()">
-                <mat-option *ngFor="let s of (seances$ | async)" 
+                <mat-option *ngFor="let s of seances" 
                             [value]="s.date" 
                             [disabled]="!selectFilm && !selectHall">
                     {{s.date}}
@@ -79,14 +79,16 @@
         </mat-form-field>
     </div>
 
-    <button (click)="addTicket()"><mat-icon >plus_one</mat-icon></button>
-    <button (click)="delTicket()"><mat-icon >plus_one</mat-icon></button>
+    <button (click)="addTicket()" type="button"><mat-icon >plus_one</mat-icon></button>
+    <mat-icon (click)="delTicket()" type="button">plus_one</mat-icon>
+
     <div style="display:flex;" *ngFor="let t of tickets"> 
         <mat-form-field class="select_input">
             <mat-label>Ряд</mat-label>
             <mat-select matNativeControl formControlName="row"
                         placeholder="Ряд"
-                        [(ngModel)]="t.row">
+                        [(ngModel)]="t.row"
+                        (ngModelChange)="onChangeTicket()">
                 <mat-option *ngFor="let p of (places$ | async)"
                             [value]="p.row" 
                             [disabled]="!selectFilm && !selectHall">
@@ -98,7 +100,8 @@
             <mat-label>Место</mat-label>
             <mat-select matNativeControl formControlName="position"
                         placeholder="Место"
-                        [(ngModel)]="t.place">
+                        [(ngModel)]="t.place"
+                        (ngModelChange)="onChangeTicket()">
                 <mat-option *ngFor="let p of (places$ | async)" 
                             [value]="p.position" 
                             [disabled]="!selectFilm && !selectHall">

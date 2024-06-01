@@ -4,5 +4,5 @@ export class Order {
         public employeeId?: string,
         public userId?: string,
         public id?: string,
-    ){}
+    ) {}
 }

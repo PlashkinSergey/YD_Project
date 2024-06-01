@@ -44,7 +44,7 @@ namespace CinemaBack.Controllers
                 booked_ticket.Id = Guid.NewGuid();
                 booked_ticket.OrderId = idOrder;
                 booked_ticket.TicketId = idTicket;
-                _context.Add(booked_ticket);
+                _context.booked_tickets.Add(booked_ticket);
                 await _context.SaveChangesAsync();
                 return booked_ticket;
             }
