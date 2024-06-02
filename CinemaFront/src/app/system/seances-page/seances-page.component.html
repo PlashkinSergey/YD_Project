@@ -1,40 +1,56 @@
 <h2 class="text_title">Текущие сеансы</h2>
-<div class="seances" *ngIf="seances$ | async as seances">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Фильм</th>
-                <th>Зал</th>
-                <th>Дата</th>
-                <th>Время</th>
-                <th>Тип</th>
-                <th>Цена</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let seance of seances">
-                <td *ngIf="(films$ | async) | film:seance as film">
-                    {{film.name}}
-                </td>
-                <td *ngIf="(halls$ | async) | hall:seance as hall">
-                    № {{hall.numberHall}}
-                </td>
-                <td>{{seance.date}}</td>
-                <td>{{seance.time}}</td>
-                <td>{{seance.type}}</td>
-                <td>{{seance.price}} P</td>
-                <td>
-                    <mat-icon style="cursor: pointer;" (click)="updateSeance(seance.id!)">
-                        create
-                    </mat-icon>
-                </td>
-                <td>
-                    <mat-icon style="cursor: pointer;" (click)="delSeance(seance)">
-                        clear
-                    </mat-icon>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-  </div>
+<div style="width: 100%; height: 100%; margin-left: 30%;">
+    <div style="width: 100%; display: flex; justify-content: end;">
+        <input type="text" [(ngModel)]="nameFilm" style="margin-right: 5px; 
+                                                        font-size: 14px; 
+                                                        font-family: sans-serif;"/>
+        <mat-icon>searche</mat-icon>
+    </div>
+    <div class="seances" *ngIf="seances$ | async as seances">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Фильм</th>
+                    <th>Зал</th>
+                    <th>Дата</th>
+                    <th>Время</th>
+                    <th>Тип</th>
+                    <th>Цена</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let seance of seances">
+                    <td *ngIf="((films$ | async) | film:seance) | searche:nameFilm as film">
+                        {{film.name}}
+                    </td>
+                    <td *ngIf="(((films$ | async) | film:seance) | searche:nameFilm)">
+                        № {{((halls$ | async) | hall:seance)!.numberHall}}
+                    </td>
+                    <td *ngIf="((films$ | async) | film:seance) | searche:nameFilm">
+                        {{seance.date}}
+                    </td>
+                    <td *ngIf="((films$ | async) | film:seance) | searche:nameFilm">
+                        {{seance.time}}
+                    </td>
+                    <td *ngIf="((films$ | async) | film:seance) | searche:nameFilm">
+                        {{seance.type}}
+                    </td>
+                    <td *ngIf="((films$ | async) | film:seance) | searche:nameFilm">
+                        {{seance.price}} P
+                    </td>
+                    <td *ngIf="((films$ | async) | film:seance) | searche:nameFilm">
+                        <mat-icon style="cursor: pointer;" (click)="updateSeance(seance.id!)">
+                            create
+                        </mat-icon>
+                    </td>
+                    <td *ngIf="((films$ | async) | film:seance) | searche:nameFilm">
+                        <mat-icon style="cursor: pointer;" (click)="delSeance(seance)">
+                            clear
+                        </mat-icon>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 

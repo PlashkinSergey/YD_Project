@@ -1,4 +1,4 @@
-<button mat-flat-button class="add_order" (click)="openDialog()">Сделать новый заказ</button>
+<button mat-flat-button class="add_order" (click)="openDialog()" [style.background]="'#3f51b5'" color="primary">Сделать новый заказ</button>
 <div class="orders" *ngIf="orders$ | async as orders">
     <table class="table">
         <thead>

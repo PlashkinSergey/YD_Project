@@ -17,7 +17,7 @@ namespace CinemaBack.Controllers
 
         // GET: Orders
         [HttpGet]
-        public async Task<List<Order>?> Index()
+        public async Task<List<Order>> Index()
         {
             return await _context.Order.ToListAsync();
         }
@@ -40,7 +40,7 @@ namespace CinemaBack.Controllers
         public async Task<List<Order>> GetOrdersByUserId(Guid? userId)
         {
             return await _context.Order
-                .Where(o => o.UserId == userId).ToListAsync() ;
+                .Where(o => o.UserId == userId).ToListAsync();
         }
 
 

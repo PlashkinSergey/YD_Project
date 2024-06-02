@@ -20,6 +20,8 @@ export class SeancesPageComponent implements OnInit {
   halls$!: Observable<Hall[]>;
   seances$!: Observable<Seance[]>;
 
+  nameFilm: string = '';
+
   constructor(
     private filmsService: FilmService,
     private hallService: HallService,

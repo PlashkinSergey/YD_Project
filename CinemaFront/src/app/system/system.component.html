@@ -29,7 +29,7 @@
                  <mat-icon>house</mat-icon>
                  <span *ngIf="!isCollapsed">Главная</span>
               </span>
-           </a>
+            </a>
             <a mat-list-item>
                 <span class="entry" [routerLink]="['/system', 'films']">
                   <mat-icon>local_movies</mat-icon>
@@ -41,12 +41,18 @@
                 <mat-icon>movie_filter</mat-icon>
                 <span *ngIf="!isCollapsed">Сеансы</span>
               </span>
-          </a>
-            <a mat-list-item [routerLink]="['/system', 'orders']">
+           </a>
+           <a mat-list-item [routerLink]="['/system', 'orders']">
                 <span class="entry">
                   <mat-icon>local_grocery_store</mat-icon>
                   <span *ngIf="!isCollapsed">Заказы</span>
                 </span>
+            </a>
+            <a mat-list-item [routerLink]="['/system', 'stats']">
+              <span class="entry">
+                <mat-icon>analytics</mat-icon>
+                <span *ngIf="!isCollapsed">Аналитика</span>
+              </span>
             </a>
           </mat-nav-list>
         </mat-sidenav>

@@ -36,19 +36,17 @@ export class OrderPageComponent implements OnInit {
       height: '720px'
     }); 
     dialogRef.afterClosed().subscribe((newOrder: boolean) => {
-      
+      this.orders$ = this.orderService.getOrderByUserId(this.user?.id!);
     });
   }
 
   getListTicketsOrder(idOrder: string) : void {
     let dialogRef = this.dialog.open(EditOrderComponent, { 
       data: {orderId: idOrder},
-      width: '720px',
+      width: '750px',
       height: '720px'
     }); 
-    dialogRef.afterClosed().subscribe((newOrder: boolean) => {
-      this.orders$ = this.orderService.getOrderByUserId(this.user?.id!);
-    });
+    dialogRef.afterClosed().subscribe((newOrder: boolean) => {});
   }
 
 }

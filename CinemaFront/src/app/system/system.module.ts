@@ -28,6 +28,9 @@ import { EditSeanceComponent } from './shared/forms/edit-seance/edit-seance.comp
 import { UserPipe } from './shared/pipes/user.pipe';
 import { SeancesPageComponent } from './seances-page/seances-page.component';
 import { SeancePipe } from './shared/pipes/seance.pipe';
+import { StatsPageComponent } from './stats-page/stats-page.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { SearchePipe } from './shared/pipes/searche.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { SeancePipe } from './shared/pipes/seance.pipe';
     EditSeanceComponent,
     UserPipe,
     SeancesPageComponent,
-    SeancePipe
+    SeancePipe,
+    StatsPageComponent,
+    SearchePipe
   ],
   imports: [
     CommonModule,
@@ -63,7 +68,8 @@ import { SeancePipe } from './shared/pipes/seance.pipe';
     MatSelectModule,
     MatDialogModule,
     MatCardModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    HighchartsChartModule
   ],
   providers: [
     {

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../models/order.model';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, of, take } from 'rxjs';
 import { boooked_ticket } from '../models/booked_ticket.model';
 import { Ticket } from '../models/ticket.model';
 
@@ -20,6 +20,12 @@ export class OrderService {
     return this.http.get<Order[]>(`${this.URL}/user=${userId}`);
   }
   
+  get Orders(): Observable<Order[]> {
+    return this.http.get<Order[]>(`${this.URL}`).pipe(
+      map((o: Order[])=> o)
+    );
+  }
+
   createOrder(order: Order): Observable<Order>  {
     return this.http.post<Order>(this.URL, order);
   }

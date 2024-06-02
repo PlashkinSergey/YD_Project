@@ -41,6 +41,7 @@ export class AddOrderComponent implements OnInit {
   selectFilm: boolean = false;
   selectHall: boolean = false;
   correctTicket: boolean = false;
+  newOrder: boolean =  false;
   time: string = '';
   date: string = '';
 
@@ -113,15 +114,17 @@ export class AddOrderComponent implements OnInit {
   }
   
   onChangeFilm(): void {
+    this.newOrder = true;
     this.selectFilm = this.idFilm !== '' ? true : this.selectFilm;
     if (!this.selectFilm) return;
-    this.seances = this.seances.filter((s: Seance) => s.filmId === this.idFilm);
-      if (this.seances.length === 0) {
-        this.toastr.error("Пока нет сеансов на данный фильм. \n Выберете другой.");
-        this.selectFilm = false;
-        return;
-      }
-      this.toastr.success("Сеансы найдены!");
+    let tmp: Seance[] = this.seances.filter((s: Seance)  => s.filmId  === this.idFilm);
+    if (tmp.length === 0) {
+      this.toastr.error("Пока нет сеансов на данный фильм. \n Выберете другой.");
+      this.selectFilm = false;
+      return;
+    }
+    this.seances = tmp;
+    this.toastr.success("Сеансы найдены!");
   }
 
   onChangeHall(): void {
