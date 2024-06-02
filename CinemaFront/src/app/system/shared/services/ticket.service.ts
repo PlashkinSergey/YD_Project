@@ -16,6 +16,10 @@ export class TicketService {
     return this.http.get<Ticket[]>(`${this.URL}/seanceId=${seanceId}`);
   }
 
+  getTicketById(ticketId: string): Observable<Ticket>  {
+    return this.http.get<Ticket>(`${this.URL}/${ticketId}`);
+  }
+
   createTicket(ticket: Ticket): Observable<Ticket> {
     return this.http.post<Ticket>(`${this.URL}`, ticket);
   }

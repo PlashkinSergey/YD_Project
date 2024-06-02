@@ -27,6 +27,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { EditSeanceComponent } from './shared/forms/edit-seance/edit-seance.component';
 import { UserPipe } from './shared/pipes/user.pipe';
 import { SeancesPageComponent } from './seances-page/seances-page.component';
+import { SeancePipe } from './shared/pipes/seance.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SeancesPageComponent } from './seances-page/seances-page.component';
     HallPipe,
     EditSeanceComponent,
     UserPipe,
-    SeancesPageComponent
+    SeancesPageComponent,
+    SeancePipe
   ],
   imports: [
     CommonModule,

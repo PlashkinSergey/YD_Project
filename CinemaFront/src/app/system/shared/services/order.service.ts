@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../models/order.model';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { boooked_ticket } from '../models/booked_ticket.model';
+import { Ticket } from '../models/ticket.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,9 @@ export class OrderService {
   createBooked_Ticket(idOrder: string, idTicket: string): Observable<boooked_ticket>  {
     let b_t: boooked_ticket = new boooked_ticket(idOrder, idTicket);
     return this.http.post<boooked_ticket>(`${this.URLB_T}/order=${idOrder}/ticket=${idTicket}`, b_t);
+  }
+
+  getBooked_TicketsByIdOrder(idOrder: string): Observable<Ticket[]>   {
+    return this.http.get<Ticket[]>(`${this.URLB_T}/order=${idOrder}`);
   }
 }

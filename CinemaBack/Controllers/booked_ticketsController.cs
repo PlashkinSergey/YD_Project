@@ -23,17 +23,19 @@ namespace CinemaBack.Controllers
             return await cinemaDBContext.ToListAsync();
         }
 
-        // GET: booked_tickets/Details/5
-        [HttpGet("{id:guid}")]
-        public async Task<booked_tickets?> GetByIdOrder(Guid? id)
-        {
-            if (id == null)
-            {
-                return null;
-            }
 
-            return await _context.booked_tickets
-                .FirstOrDefaultAsync(m => m.OrderId == id);
+        [HttpGet("order={orderId:guid}")]
+        public async Task<List<Ticket?>> GetByIdOrder(Guid orderId)
+        {
+            var b_ts = await _context.booked_tickets
+                .Where(m => m.OrderId == orderId).ToListAsync();
+            var tickets = new List<Ticket?>();
+            foreach (var b in b_ts)
+            {
+                tickets.Add(await _context.Ticket
+                    .FirstOrDefaultAsync((t) => t.Id == b.TicketId));
+            }
+            return tickets;
         }
 
         [HttpPost("order={idOrder:guid}/ticket={idTicket:guid}")]

@@ -25,7 +25,7 @@ namespace CinemaBack.Controllers
 
         // GET: Tickets/Details/5
         [HttpGet("{id:guid}")]
-        public async Task<Ticket?> Details(Guid id)
+        public async Task<Ticket> Details(Guid? id)
         {
             return await _context.Ticket
                 .FirstOrDefaultAsync(m => m.Id == id);

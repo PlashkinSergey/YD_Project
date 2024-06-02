@@ -57,7 +57,7 @@
                         placeholder="Время"
                         [(ngModel)]="time"
                         (ngModelChange)="onChangeSeance()">
-                <mat-option *ngFor="let s of (seances$ | async)" 
+                <mat-option *ngFor="let s of seances" 
                             [value]="s.time" 
                             [disabled]="!selectFilm && !selectHall">
                     {{s.time}}
@@ -70,7 +70,7 @@
                         placeholder="Дата"
                         [(ngModel)]="date"
                         (ngModelChange)="onChangeSeance()">
-                <mat-option *ngFor="let s of (seances$ | async)" 
+                <mat-option *ngFor="let s of seances" 
                             [value]="s.date" 
                             [disabled]="!selectFilm && !selectHall">
                     {{s.date}}

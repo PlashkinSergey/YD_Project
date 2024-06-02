@@ -1,1 +1,35 @@
-<p>edit-order works!</p>
+<h2 class="text_title">Состав заказа</h2>
+<div class="seances" *ngIf="tickets$ | async as tickets">
+    <table class="table" *ngIf="(seances$|async) as seances">
+        <thead >
+            <tr>
+                <th>Фильм</th>
+                <th>Зал</th>
+                <th>Дата</th>
+                <th>Время</th>
+                <th>Ряд</th>
+                <th>Место</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let t of tickets">
+                    <td *ngIf="(films$ | async) | film:(seances$ | async | seance:t.seanceId!) as film">
+                        {{film.name}}
+                    </td>
+                    <td *ngIf="(halls$ | async) | hall:(seances$ | async | seance:t.seanceId!) as hall">
+                       № {{hall.numberHall}}
+                    </td>
+                    <td *ngIf="(seances$ | async) | seance:t.seanceId! as seance">
+                        {{seance.date}}
+                    </td>
+                    <td *ngIf="(seances$ | async | seance:t.seanceId!) as seance">
+                        {{seance.time}}
+                    </td>
+                    <td >{{t.row}}</td>
+                    <td>{{t.place}}</td>
+                </tr>
+        </tbody>
+    </table>
+  </div>
+
+

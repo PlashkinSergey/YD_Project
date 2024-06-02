@@ -18,6 +18,7 @@ import { TicketService } from '../../services/ticket.service';
 import { Order } from '../../models/order.model';
 import { OrderService } from '../../services/order.service';
 import { tick } from '@angular/core/testing';
+import { boooked_ticket } from '../../models/booked_ticket.model';
 
 @Component({
   selector: 'app-add-order',
@@ -29,7 +30,7 @@ export class AddOrderComponent implements OnInit {
   films$!: Observable<Film[]>
   halls$!: Observable<Hall[]>
   places$!: Observable<Place[]>
-  seances$!: Observable<Seance[]>;
+  seances!: Seance[];
   tickets: Ticket[] = [];
 
   form!: FormGroup;
@@ -58,7 +59,7 @@ export class AddOrderComponent implements OnInit {
   ngOnInit(): void {
     this.userService.CurrentUser.subscribe((curUser: User) => this.user = curUser);
     this.employees$ = this.userService.userByType("Сотрудник");
-    this.seances$ = this.seanceService.Seances;
+    this.seanceService.Seances.subscribe((seances: Seance[])  =>  this.seances  =  seances);
     this.films$ = this.filmService.Films;
     this.halls$ = this.hallService.Halls;
     this.tickets = [{ row:	0, place: 0, seanceId: ''}];
@@ -82,17 +83,17 @@ export class AddOrderComponent implements OnInit {
       this.idEmployee,
       this.user?.id
     );
-    this.seances$.subscribe((seances: Seance[]) => {
       this.tickets.forEach((ticket: Ticket)  => {
-        ticket.seanceId = seances[0].id;
-        this.ticketService.createTicket(ticket).subscribe((t: Ticket) => ticket.id = t.id);
+        ticket.seanceId = this.seances[0].id;
+        this.ticketService.createTicket(ticket).subscribe((t: Ticket) => {
+          ticket.id = t.id
+        });
       })
       this.orderService.createOrder(order).subscribe((o: Order) => {
         for (let ticket of this.tickets)  {
-          this.orderService.createBooked_Ticket(o.id!, ticket.id!).subscribe();
+          this.orderService.createBooked_Ticket(o.id!, ticket.id!).subscribe((b_t: boooked_ticket)  => {});
         }
       });
-    })
    }
 
   close(): void {
@@ -114,39 +115,30 @@ export class AddOrderComponent implements OnInit {
   onChangeFilm(): void {
     this.selectFilm = this.idFilm !== '' ? true : this.selectFilm;
     if (!this.selectFilm) return;
-    this.seances$ = this.seances$.pipe(
-      map((seances: Seance[]) => seances.filter((s: Seance) => s.filmId === this.idFilm))
-    );
-    this.seances$.subscribe((seances: Seance[])=> {
-      if (seances.length === 0) {
+    this.seances = this.seances.filter((s: Seance) => s.filmId === this.idFilm);
+      if (this.seances.length === 0) {
         this.toastr.error("Пока нет сеансов на данный фильм. \n Выберете другой.");
         this.selectFilm = false;
         return;
       }
       this.toastr.success("Сеансы найдены!");
-    });
   }
 
   onChangeHall(): void {
     this.selectHall = this.idHall !== '' ? true : this.selectHall;
     if (!this.selectHall) return;
-    this.seances$ = this.seances$.pipe(
-      map((seances: Seance[]) => seances.filter((s: Seance) => s.hallId === this.idHall))
-    );
+    this.seances = this.seances.filter((s: Seance) => s.hallId === this.idHall)
     this.places$ = this.placeService.getPlacesByHallId(this.idHall);
   }
 
   onChangeSeance(): void {
     if (this.time === '' || this.date === '') return;
-    this.seances$ = this.seances$.pipe(
-      map((seances: Seance[]) => seances.filter((s: Seance) => s.time == this.time && s.date === this.date))
-    );
+    this.seances = this.seances.filter((s: Seance) => s.time == this.time && s.date === this.date)
   }
 
   onChangeTicket(): void  {
-    this.seances$.subscribe((seances: Seance[]) => {
       this.correctTicket = true;
-      this.ticketService.getTicketsBySeanceId(seances[0].id).subscribe((tickets: Ticket[]) => {
+      this.ticketService.getTicketsBySeanceId(this.seances[0].id).subscribe((tickets: Ticket[]) => {
         tickets.forEach((t1: Ticket) => {
           this.tickets.forEach((t2: Ticket) => {
             if (t1.row === t2.row && t1.place === t2.place) {
@@ -156,6 +148,5 @@ export class AddOrderComponent implements OnInit {
         });
         !this.correctTicket ? this.toastr.error("Место занято. \n Выберете другое место.") : '';
       });
-    })
   }
 }
