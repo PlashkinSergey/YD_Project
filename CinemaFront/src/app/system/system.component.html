@@ -32,14 +32,20 @@
            </a>
             <a mat-list-item>
                 <span class="entry" [routerLink]="['/system', 'films']">
-                <mat-icon>local_movies</mat-icon>
-                <span *ngIf="!isCollapsed">Фильмы</span>
+                  <mat-icon>local_movies</mat-icon>
+                  <span *ngIf="!isCollapsed">Фильмы</span>
                 </span>
             </a>
+            <a mat-list-item>
+              <span class="entry" [routerLink]="['/system', 'seances']">
+                <mat-icon>movie_filter</mat-icon>
+                <span *ngIf="!isCollapsed">Сеансы</span>
+              </span>
+          </a>
             <a mat-list-item [routerLink]="['/system', 'orders']">
                 <span class="entry">
-                <mat-icon>local_grocery_store</mat-icon>
-                <span *ngIf="!isCollapsed">Заказы</span>
+                  <mat-icon>local_grocery_store</mat-icon>
+                  <span *ngIf="!isCollapsed">Заказы</span>
                 </span>
             </a>
           </mat-nav-list>

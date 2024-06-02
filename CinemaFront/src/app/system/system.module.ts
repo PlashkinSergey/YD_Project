@@ -25,6 +25,8 @@ import { FilmPipe } from './shared/pipes/film.pipe';
 import { HallPipe } from './shared/pipes/hall.pipe';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { EditSeanceComponent } from './shared/forms/edit-seance/edit-seance.component';
+import { UserPipe } from './shared/pipes/user.pipe';
+import { SeancesPageComponent } from './seances-page/seances-page.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { EditSeanceComponent } from './shared/forms/edit-seance/edit-seance.comp
     FinddistributorPipe,
     FilmPipe,
     HallPipe,
-    EditSeanceComponent
+    EditSeanceComponent,
+    UserPipe,
+    SeancesPageComponent
   ],
   imports: [
     CommonModule,

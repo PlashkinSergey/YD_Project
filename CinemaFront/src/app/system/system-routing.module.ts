@@ -5,10 +5,12 @@ import { Error404Module } from '../error404/error404.module';
 import { FilmsComponent } from './films/films.component';
 import { OrderPageComponent } from './order-page/order-page.component';
 import { HomeComponent } from './home/home.component';
+import { SeancesPageComponent } from './seances-page/seances-page.component';
 
 const routes: Routes = [
   { path: '', component: SystemComponent, children: [
     { path: 'home', component: HomeComponent},
+    { path: 'seances', component: SeancesPageComponent},
     { path: 'films', component: FilmsComponent },
     { path: 'orders', component: OrderPageComponent },
     { path: '**', loadChildren: () => Error404Module },

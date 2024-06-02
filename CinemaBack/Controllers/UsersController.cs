@@ -29,9 +29,8 @@ namespace CinemaBack.Controllers
             {
                 return null;
             }
-            var user = await _context.User
+            return await _context.User
                 .FirstOrDefaultAsync(m => m.Id == id);
-            return user;
         }
 
         [HttpGet("email={email}")]

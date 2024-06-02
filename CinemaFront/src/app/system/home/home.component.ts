@@ -16,48 +16,6 @@ import { EditSeanceComponent } from '../shared/forms/edit-seance/edit-seance.com
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  films$!: Observable<Film[]>;
-  halls$!: Observable<Hall[]>;
-  seances$!: Observable<Seance[]>;
-
-  constructor(
-    private filmsService: FilmService,
-    private hallService: HallService,
-    private seanceService: SeanceService,
-    private dialog: MatDialog,
-    private toast: HotToastService
-  ) { }
-  ngOnInit(): void {
-    this.films$ = this.filmsService.Films;
-    this.halls$ = this.hallService.Halls;
-    this.seances$ = this.seanceService.Seances;
-  }
-
-  delSeance(seance: Seance) {
-    this.seanceService.deleteSeance(seance).subscribe((request: boolean) => {
-      if (request) {
-        this.seances$ = this.seances$.pipe(
-          map((seances: Seance[]) => seances.filter(s => s.id !== seance.id))
-        );
-        this.toast.success("Сеанс успешно удалён!");
-        return;
-      }
-      this.toast.error("Сеанс не удалён!");
-    });
-  }
-
-  updateSeance(seanceId: string): void {
-    let dialogref =this.dialog.open(EditSeanceComponent, 
-      {
-        data : { seanceId: seanceId },
-        width: '450px',
-        height: '600px'
-      }
-    );
-
-    dialogref.afterClosed().subscribe((result: boolean) => {
-        this.seances$ = this.seanceService.Seances;
-     });
-  }
-  
+  constructor() {}
+  ngOnInit(): void  {}
 }

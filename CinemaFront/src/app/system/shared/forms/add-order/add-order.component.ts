@@ -101,7 +101,7 @@ export class AddOrderComponent implements OnInit {
 
   addTicket(): void {
     if (this.tickets.length === 3) {
-      this.toastr.error("Много выбрано мест.");
+      this.toastr.error("Выбранно много билетов");
       return;
     }
     this.tickets = [...this.tickets, ...[{ row:	0, place: 0, seanceId: ''}]]

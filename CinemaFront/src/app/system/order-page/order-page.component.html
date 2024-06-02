@@ -1,1 +1,22 @@
-<button mat-flat-button class="add_film" (click)="openDialog()">Сделать заказ</button>
+<button mat-flat-button class="add_order" (click)="openDialog()">Сделать новый заказ</button>
+<div class="orders" *ngIf="orders$ | async as orders">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Дата заказа</th>
+                <th>Логин сотрудника</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                <td>{{order.regDate}}</td>
+                <td *ngIf="(users$ | async) | user:order.employeeId! as employee">{{employee.name}}</td>
+                <td>
+                    <mat-icon style="cursor: pointer;" (click)="getListTicketsOrder(order.id!)">
+                        description
+                    </mat-icon>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
