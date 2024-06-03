@@ -22,6 +22,17 @@ namespace CinemaBack.Controllers
             return await _context.Film.ToListAsync();
         }
 
+        [HttpGet("countOfDistributors")]
+        public async Task<List<int>> GetCountFilm()
+        {
+            List<int> countList = new List<int>();
+            foreach(var dist in await this._context.Distributor.ToListAsync())
+            {
+                countList.Add(await this._context.Film.Where(f => f.DistributorId == dist.Id).CountAsync());
+            }
+            return countList;
+        }
+
         // GET: Films/Details/5
         [HttpGet("{id:guid}")]
         public async Task<Film?> Details(Guid? id)

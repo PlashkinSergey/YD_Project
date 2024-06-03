@@ -22,4 +22,8 @@ export class FilmService {
   deleteFilm(film: Film): Observable<boolean> {
     return this.http.delete<boolean>(this.URL + '/' + film.id);
   }
+
+  get CountFilmsByDistributor(): Observable<number[]>  {
+    return this.http.get<number[]>(this.URL + '/countOfDistributors');
+  }
 }

@@ -131,12 +131,19 @@ export class AddOrderComponent implements OnInit {
     this.selectHall = this.idHall !== '' ? true : this.selectHall;
     if (!this.selectHall) return;
     this.seances = this.seances.filter((s: Seance) => s.hallId === this.idHall)
+    let tmp: Seance[] = this.seances.filter((s: Seance) => s.hallId === this.idHall);
+    if (tmp.length !== 0)  {
+      this.seances = tmp;
+    }
     this.places$ = this.placeService.getPlacesByHallId(this.idHall);
   }
 
   onChangeSeance(): void {
     if (this.time === '' || this.date === '') return;
-    this.seances = this.seances.filter((s: Seance) => s.time == this.time && s.date === this.date)
+    let tmp: Seance[] = this.seances.filter((s: Seance) => s.time == this.time && s.date === this.date)
+    if (tmp.length !==  0)   {
+      this.seances  = tmp;
+    }
   }
 
   onChangeTicket(): void  {

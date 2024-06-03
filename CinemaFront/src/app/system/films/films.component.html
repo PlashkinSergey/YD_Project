@@ -2,7 +2,7 @@
 <div class="films" *ngIf="distributors$ | async as distributors">
     <mat-card *ngFor="let f of (films$ | async)" class="film_card">
         <mat-card-title>
-            <span> {{f.name}} </span>
+            <span>{{f.name}}</span>
             <mat-icon 
                 style="cursor: pointer; float: right;" 
                 (click)="delFilm(f)">

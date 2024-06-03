@@ -10,6 +10,10 @@ namespace CinemaBack.Controllers
     {
         private readonly CinemaDBContext _context;
 
+        private readonly List<string> typeList = new List<string>()
+        {
+            "Утренний", "Дневной", "Вечерний", "Ночной"
+        };
         public SeancesController(CinemaDBContext context)
         {
             _context = context;
@@ -20,6 +24,17 @@ namespace CinemaBack.Controllers
         public async Task<List<Seance>> Index()
         {
             return await _context.Seance.ToListAsync();
+        }
+
+        [HttpGet("counts")]
+        public async Task<List<int>> GetCountSeance()
+        {
+            List<int> countList = new List<int>();
+            foreach (var type in this.typeList)
+            {
+                countList.Add(await _context.Seance.Where(s => s.Type == type).CountAsync());
+            }
+            return countList;
         }
 
         // GET: Seances/Details/5

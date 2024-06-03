@@ -30,4 +30,8 @@ export class SeanceService {
   updateSeance(seance: Seance): Observable<boolean> {
     return this.http.put<boolean>(`${this.URL}/${seance.id}`, seance);
   }
+
+  get CountTypeSeances(): Observable<number[]>  {
+    return this.http.get<number[]>(`${this.URL}/counts`);
+  }
 }

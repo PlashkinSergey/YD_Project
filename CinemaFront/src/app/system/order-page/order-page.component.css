@@ -38,12 +38,10 @@
 	padding: 5px;
 	background: #F2F8F8;
 	border: 1px black;
-	/*border-bottom: 5px solid #F2F8F8;*/
 }
 .table td {
 	padding: 5px;
 	border: 1px black;
-	/*order-bottom: 5px solid #F2F8F8;*/
     margin: 0;
     align-items: center;
     justify-content: center;
