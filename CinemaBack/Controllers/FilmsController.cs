@@ -15,7 +15,6 @@ namespace CinemaBack.Controllers
             _context = context;
         }
 
-        // GET: Films
         [HttpGet]
         public async Task<List<Film>?> GetAllFilm()
         {
@@ -33,7 +32,6 @@ namespace CinemaBack.Controllers
             return countList;
         }
 
-        // GET: Films/Details/5
         [HttpGet("{id:guid}")]
         public async Task<Film?> Details(Guid? id)
         {
@@ -113,3 +111,5 @@ namespace CinemaBack.Controllers
         }
     }
 }
+
+

@@ -1,7 +1,7 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddFilmComponent } from '../shared/forms/add-film/add-film.component';
-import { map, Observable, windowWhen } from 'rxjs';
+import { map, Observable} from 'rxjs';
 import { Film } from '../shared/models/film.model';
 import { FilmService } from '../shared/services/film.service';
 import { DistributorService } from '../shared/services/distributor.service';
@@ -51,3 +51,4 @@ export class FilmsComponent implements OnInit{
     });
   }
 }
+

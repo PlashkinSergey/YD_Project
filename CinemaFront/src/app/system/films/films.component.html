@@ -1,4 +1,6 @@
-<button mat-flat-button class="add_film" (click)="openDialog()" [style.background]="'#3f51b5'" color="primary">Добавить фильм</button>
+<button mat-flat-button class="add_film" (click)="openDialog()" [style.background]="'#3f51b5'" color="primary">
+    Добавить фильм
+</button>
 <div class="films" *ngIf="distributors$ | async as distributors">
     <mat-card *ngFor="let f of (films$ | async)" class="film_card">
         <mat-card-title>
@@ -33,3 +35,5 @@
         </mat-card-content>
     </mat-card>
 </div>
+
+

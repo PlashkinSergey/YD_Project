@@ -23,7 +23,6 @@ export class EditSeanceComponent implements OnInit {
   constructor(
     private filmService: FilmService,
     private hallService: HallService,
-    private toast: HotToastService,
     private seanceService: SeanceService,
     private dialogRef: MatDialogRef<EditSeanceComponent>,
     @Inject(MAT_DIALOG_DATA) private data: { seanceId: string },
